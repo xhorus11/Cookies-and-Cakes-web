@@ -9,6 +9,10 @@ const productsData = [
     { id: 'torta-tres-leches', category: 'torta', name: 'Torta Tres Leches', price: '$22.000', image_card: 'https://placehold.co/400x400/f8c8dc/4a4a4a?text=Tres+Leches', image_detail: 'https://placehold.co/600x600/f8c8dc/4a4a4a?text=Tres+Leches', description: 'Bizcocho esponjoso bañado en una mezcla de tres leches, cubierto con merengue italiano y un toque de canela.', materials: [ 'Leche condensada', 'Leche evaporada', 'Crema de leche', 'Huevos', 'Harina', 'Canela' ] },
     { id: 'torta-limon-amapolas', category: 'torta', name: 'Torta Limón y Amapolas', price: '$23.000', image_card: 'https://placehold.co/400x400/f8c8dc/4a4a4a?text=Torta+Limon', image_detail: 'https://placehold.co/600x600/f8c8dc/4a4a4a?text=Torta+Limon', description: 'Fresco y aromático bizcocho de limón con semillas de amapola, relleno con curd de limón y cubierto con un glaseado suave.', materials: [ 'Limón', 'Semillas de amapola', 'Harina', 'Azúcar', 'Yogurt', 'Mantequilla' ] },
     { id: 'torta-panqueque-naranja', category: 'torta', name: 'Torta Panqueque Naranja', price: '$27.000', image_card: 'https://placehold.co/400x400/f8c8dc/4a4a4a?text=Panqueque+Naranja', image_detail: 'https://placehold.co/600x600/f8c8dc/4a4a4a?text=Panqueque+Naranja', description: 'Finas capas de panqueques intercaladas con una delicada crema de naranja y manjar, cubierta con chocolate.', materials: [ 'Naranja', 'Manjar', 'Harina', 'Huevos', 'Chocolate', 'Leche' ] },
+    { id: 'torta-selva-negra', category: 'torta', name: 'Torta Selva Negra', price: '$29.000', image_card: 'https://placehold.co/400x400/f8c8dc/4a4a4a?text=Selva+Negra', image_detail: 'https://placehold.co/600x600/f8c8dc/4a4a4a?text=Selva+Negra', description: 'Capas de bizcocho de chocolate embebido en licor de cereza, con crema chantilly y cerezas. Decorada con virutas de chocolate.', materials: ['Chocolate', 'Cerezas', 'Crema Chantilly', 'Harina', 'Huevos', 'Licor de Cereza'] },
+    { id: 'torta-moka', category: 'torta', name: 'Torta Moka', price: '$26.000', image_card: 'https://placehold.co/400x400/f8c8dc/4a4a4a?text=Torta+Moka', image_detail: 'https://placehold.co/600x600/f8c8dc/4a4a4a?text=Torta+Moka', description: 'Para los amantes del café. Bizcocho de vainilla con un suave remojo de café, relleno y cubierto con una sedosa crema de mantequilla de café.', materials: ['Café', 'Mantequilla', 'Harina', 'Huevos', 'Azúcar', 'Leche'] },
+    { id: 'pie-de-limon', category: 'torta', name: 'Pie de Limón', price: '$21.000', image_card: 'https://placehold.co/400x400/f8c8dc/4a4a4a?text=Pie+de+Limon', image_detail: 'https://placehold.co/600x600/f8c8dc/4a4a4a?text=Pie+de+Limon', description: 'Base de galleta crujiente, relleno con una crema de limón intensa y ácida, coronado con un esponjoso merengue italiano dorado.', materials: ['Limones', 'Leche condensada', 'Galletas', 'Mantequilla', 'Claras de huevo', 'Azúcar'] },
+    
     // --- GALLETAS Y OTROS ---
     { id: 'galletas-vainilla', category: 'galleta', name: 'Galletas de Vainilla', price: '$1.500 c/u', image_card: 'https://placehold.co/400x400/f8c8dc/4a4a4a?text=Galletas+Vainilla', image_detail: 'https://placehold.co/600x600/f8c8dc/4a4a4a?text=Galletas+Vainilla', description: 'Tiernas galletas de mantequilla con un toque de vainilla, decoradas a mano con glaseado real. Perfectas para regalos y eventos.', materials: [ 'Harina', 'Mantequilla', 'Azúcar', 'Huevo', 'Vainilla', 'Azúcar glas' ] },
     { id: 'galletas-craqueladas', category: 'galleta', name: 'Galletas Craqueladas', price: '$1.800 c/u', image_card: 'https://placehold.co/400x400/f8c8dc/4a4a4a?text=Galletas+Craqueladas', image_detail: 'https://placehold.co/600x600/f8c8dc/4a4a4a?text=Galletas+Craqueladas', description: 'Intensas galletas de chocolate con una textura similar a un brownie, cubiertas de azúcar glas que se craquela al hornear.', materials: [ 'Chocolate amargo', 'Cacao', 'Azúcar glas', 'Huevo', 'Harina' ] },
@@ -16,8 +20,15 @@ const productsData = [
     { id: 'cookies-chocolate-chip', category: 'galleta', name: 'Cookies Chocolate Chip', price: '$1.700 c/u', image_card: 'https://placehold.co/400x400/f8c8dc/4a4a4a?text=Cookies', image_detail: 'https://placehold.co/600x600/f8c8dc/4a4a4a?text=Cookies', description: 'La clásica galleta americana: crujiente por fuera, blanda por dentro y repleta de chips de chocolate semi-amargo.', materials: [ 'Chips de chocolate', 'Harina', 'Mantequilla', 'Azúcar rubia', 'Huevo', 'Bicarbonato' ] },
     { id: 'macarons-surtidos', category: 'galleta', name: 'Macarons Surtidos', price: '$2.000 c/u', image_card: 'https://placehold.co/400x400/f8c8dc/4a4a4a?text=Macarons', image_detail: 'https://placehold.co/600x600/f8c8dc/4a4a4a?text=Macarons', description: 'Finos merengues de almendra con un relleno cremoso. Disponibles en una variedad de sabores como chocolate, frambuesa, pistacho y maracuyá.', materials: [ 'Harina de almendras', 'Claras de huevo', 'Azúcar', 'Rellenos variados' ] },
     { id: 'galletas-avena-pasas', category: 'galleta', name: 'Galletas de Avena y Pasas', price: '$1.600 c/u', image_card: 'https://placehold.co/400x400/f8c8dc/4a4a4a?text=Galletas+Avena', image_detail: 'https://placehold.co/600x600/f8c8dc/4a4a4a?text=Galletas+Avena', description: 'Una galleta contundente y sabrosa, con la textura de la avena y el dulzor de las pasas. Ligeramente especiada con canela.', materials: [ 'Avena', 'Pasas', 'Harina', 'Canela', 'Mantequilla', 'Azúcar rubia' ] },
+    { id: 'brownies-chocolate', category: 'galleta', name: 'Brownies de Chocolate', price: '$2.200 c/u', image_card: 'https://placehold.co/400x400/f8c8dc/4a4a4a?text=Brownies', image_detail: 'https://placehold.co/600x600/f8c8dc/4a4a4a?text=Brownies', description: 'Cuadrados de chocolate intensos y húmedos, con una capa superior crujiente. Pueden incluir nueces o chips de chocolate extra.', materials: ['Chocolate', 'Mantequilla', 'Azúcar', 'Huevos', 'Harina', 'Nueces (opcional)'] },
+    { id: 'cuchuflis-artesanales', category: 'galleta', name: 'Cuchuflís Artesanales', price: '$1.200 c/u', image_card: 'https://placehold.co/400x400/f8c8dc/4a4a4a?text=Cuchuflis', image_detail: 'https://placehold.co/600x600/f8c8dc/4a4a4a?text=Cuchuflis', description: 'Barquillos cilíndricos y crujientes, rellenos de manjar y bañados en chocolate. Un clásico chileno que encanta a todos.', materials: ['Harina', 'Azúcar', 'Manjar', 'Chocolate'] },
+    { id: 'merenguitos', category: 'galleta', name: 'Merenguitos', price: '$1.000 (3 unidades)', image_card: 'https://placehold.co/400x400/f8c8dc/4a4a4a?text=Merenguitos', image_detail: 'https://placehold.co/600x600/f8c8dc/4a4a4a?text=Merenguitos', description: 'Pequeños suspiros de merengue, crujientes por fuera y suaves por dentro. Un bocado ligero y dulce, perfecto para acompañar el café.', materials: ['Claras de huevo', 'Azúcar'] },
+    { id: 'cocadas', category: 'galleta', name: 'Cocadas', price: '$1.500 c/u', image_card: 'https://placehold.co/400x400/f8c8dc/4a4a4a?text=Cocadas', image_detail: 'https://placehold.co/600x600/f8c8dc/4a4a4a?text=Cocadas', description: 'Dulces bocados de coco rallado y manjar, horneados hasta quedar dorados por fuera y tiernos por dentro.', materials: ['Coco rallado', 'Manjar', 'Huevos'] },
+
     // --- PERSONALIZADOS ---
-    { id: 'cupcakes-personalizados', category: 'personalizado', name: 'Cupcakes Personalizados', price: 'Desde $2.000 c/u', image_card: 'https://placehold.co/400x400/f8c8dc/4a4a4a?text=Cupcakes', image_detail: 'https://placehold.co/600x600/f8c8dc/4a4a4a?text=Cupcakes', description: 'Nuestros cupcakes son la porción perfecta de felicidad. Elige el sabor del bizcocho y el frosting a tu gusto. Ideales para mesas dulces.', materials: [ 'Ingredientes varían según la elección del cliente', 'Base de harina, azúcar, huevos, mantequilla' ] }
+    { id: 'cupcakes-personalizados', category: 'personalizado', name: 'Cupcakes Personalizados', price: 'Desde $2.000 c/u', image_card: 'https://placehold.co/400x400/f8c8dc/4a4a4a?text=Cupcakes', image_detail: 'https://placehold.co/600x600/f8c8dc/4a4a4a?text=Cupcakes', description: 'Nuestros cupcakes son la porción perfecta de felicidad. Elige el sabor del bizcocho y el frosting a tu gusto. Ideales para mesas dulces.', materials: [ 'Ingredientes varían según la elección del cliente', 'Base de harina, azúcar, huevos, mantequilla' ] },
+    { id: 'torta-de-boda', category: 'personalizado', name: 'Torta de Boda', price: 'Consultar', image_card: 'https://placehold.co/400x400/f8c8dc/4a4a4a?text=Torta+Boda', image_detail: 'https://placehold.co/600x600/f8c8dc/4a4a4a?text=Torta+Boda', description: 'Diseñamos la torta de tus sueños para tu día especial. Múltiples pisos, sabores y decoraciones florales o temáticas. Contáctanos para una cotización.', materials: ['Ingredientes premium', 'Diseño a medida', 'Flores naturales o de azúcar', 'Fondant o buttercream'] },
+    { id: 'galletas-corporativas', category: 'personalizado', name: 'Galletas Corporativas', price: 'Consultar', image_card: 'https://placehold.co/400x400/f8c8dc/4a4a4a?text=Galletas+Logo', image_detail: 'https://placehold.co/600x600/f8c8dc/4a4a4a?text=Galletas+Logo', description: 'Galletas de mantequilla personalizadas con el logo de tu empresa en papel de azúcar comestible. Perfectas para eventos, regalos a clientes o activaciones de marca.', materials: ['Mantequilla', 'Harina', 'Azúcar', 'Papel de azúcar comestible', 'Tinta comestible'] }
 ];
 
 // --- CÓDIGO DEL SITIO WEB ---
@@ -55,13 +66,12 @@ function loadPageContent() {
         case 'galletas.html':
             loadCategorizedProducts('galleta');
             break;
-        case 'personalizados.html':
+        case 'personalization.html':
             loadCategorizedProducts('personalizado');
             break;
         case 'detalles.html':
             loadProductDetails();
             break;
-        // No hacer nada en index.html, ya que es estático
     }
 }
 
@@ -116,7 +126,7 @@ function loadProductDetails() {
                     <p class="product-detail-price">${product.price}</p>
                     <p class="product-detail-description">${product.description}</p>
                     <div class="product-detail-extra"><h3>Ingredientes Principales</h3><ul>${materialsList}</ul></div>
-                    <a href="personalizados.html" class="btn btn-primary">Encargar o Personalizar</a>
+                    <a href="personalization.html" class="btn btn-primary">Encargar o Personalizar</a>
                 </div>
             </div>`;
     } else {
@@ -141,3 +151,4 @@ function sendOrderToWhatsApp() {
     const whatsappURL = `https://wa.me/${businessWhatsAppNumber}?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank').focus();
 }
+
