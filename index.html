@@ -25,29 +25,38 @@
                 </button>
                 <ul id="nav-links">
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="#productos">Productos</a></li>
-                    <li><a href="personalization.html">Personalización</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="tortas.html">Tortas</a></li>
+                    <li><a href="galletas.html">Galletas</a></li>
+                    <li><a href="personalizados.html">Personalizados</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Endulzando tus momentos especiales</h1>
-            <p class="hero-subtitle">Tortas y galletas hechas con amor y dedicación.</p>
-            <a href="personalization.html" class="btn btn-primary">Personaliza tu Pedido</a>
-        </div>
-    </section>
+    <!-- Category Selection Section -->
+    <main class="container category-selection-container">
+        <h1 class="section-title">Nuestras Creaciones</h1>
+        <p class="section-subtitle">Hechas con amor, para endulzar tus momentos.</p>
 
-    <!-- Products Section -->
-    <main id="productos" class="container">
-        <h2 class="section-title">Nuestras Delicias</h2>
-        <div id="product-grid" class="product-grid">
-            <!-- Los productos se cargarán aquí dinámicamente desde JavaScript -->
-            <p>Cargando productos...</p>
+        <div class="category-grid">
+            <!-- Link a la página de tortas -->
+            <a href="tortas.html" class="category-card" style="background-image: url('https://placehold.co/400x300/f8c8dc/4a4a4a?text=Tortas');">
+                <div class="category-card-overlay">
+                    <h2>Tortas</h2>
+                </div>
+            </a>
+            <!-- Link a la página de galletas -->
+            <a href="galletas.html" class="category-card" style="background-image: url('https://placehold.co/400x300/f8c8dc/4a4a4a?text=Galletas');">
+                 <div class="category-card-overlay">
+                    <h2>Galletas</h2>
+                </div>
+            </a>
+            <!-- Link a la página de personalizados -->
+            <a href="personalizados.html" class="category-card" style="background-image: url('https://placehold.co/400x300/f8c8dc/4a4a4a?text=Personalizados');">
+                 <div class="category-card-overlay">
+                    <h2>Personalizadas y Festivos</h2>
+                </div>
+            </a>
         </div>
     </main>
 
@@ -58,8 +67,9 @@
                 <h4>Navegación</h4>
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="#productos">Productos</a></li>
-                    <li><a href="personalization.html">Personalización</a></li>
+                    <li><a href="tortas.html">Tortas</a></li>
+                    <li><a href="galletas.html">Galletas</a></li>
+                    <li><a href="personalizados.html">Personalizados</a></li>
                 </ul>
             </div>
             <div class="footer-column">
@@ -79,11 +89,6 @@
             <p>&copy; <span id="currentYear"></span> Cookies and Cakes. Todos los derechos reservados.</p>
         </div>
     </footer>
-
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/56961961556?text=Hola%20Cookies%20and%20Cakes!%20Tengo%20una%20consulta." class="whatsapp-float" target="_blank" aria-label="Chatea con nosotros en WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
 
     <!-- JavaScript -->
     <script src="script.js"></script>

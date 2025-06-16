@@ -163,40 +163,8 @@ a:hover {
     cursor: pointer;
 }
 
-/* --- Hero Section --- */
-.hero {
-    background-image: linear-gradient(rgba(255, 245, 238, 0.8), rgba(255, 245, 238, 0.8)), url('https://placehold.co/1200x600/f3cfc6/ffffff?text=Delicias+Horneadas');
-    background-size: cover;
-    background-position: center;
-    height: 70vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 5%;
-}
 
-.hero-content {
-    animation: fadeIn 1.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.hero-title {
-    font-family: var(--font-headings);
-    font-size: 3.5rem;
-    color: var(--text-dark);
-}
-
-.hero-subtitle {
-    font-size: 1.2rem;
-    margin: 1rem 0 2rem;
-}
-
-/* --- Category Selection Page --- */
+/* --- Category Selection Page (index.html) --- */
 .category-selection-container {
     text-align: center;
 }
@@ -208,41 +176,50 @@ a:hover {
     flex-wrap: wrap;
     gap: 2rem;
     margin-top: 2rem;
-    margin-bottom: 3rem;
 }
 
 .category-card {
-    background-color: #fff;
-    border: 3px solid var(--pink-pastel);
     border-radius: 15px;
-    width: 320px;
-    height: 220px;
+    width: 350px;
+    height: 250px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     text-decoration: none;
     transition: all 0.3s ease;
     box-shadow: var(--shadow);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .category-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-    border-color: var(--pink-accent);
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.category-card-overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.category-card:hover .category-card-overlay {
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .category-card h2 {
     font-family: var(--font-headings);
-    font-size: 2.5rem;
-    color: var(--text-dark);
+    font-size: 2.8rem;
+    color: var(--text-light);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
-.custom-order-button {
-    font-size: 1rem;
-    padding: 15px 35px;
-}
 
-/* --- Product Grid --- */
+/* --- Product Grid (tortas.html, galletas.html, etc) --- */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -356,6 +333,12 @@ a:hover {
 }
 
 /* --- Customization Form --- */
+.custom-form-section {
+    margin-top: 5rem;
+    padding-top: 3rem;
+    border-top: 2px solid var(--pink-pastel);
+}
+
 .custom-form {
     max-width: 700px;
     margin: 0 auto;
@@ -431,6 +414,7 @@ a:hover {
     position: relative;
     padding-bottom: 0.5rem;
 }
+
 .footer-column h4::after {
     content: '';
     position: absolute;
@@ -443,13 +427,15 @@ a:hover {
 
 .footer-column ul {
     list-style: none;
+    padding: 0;
 }
 
 .footer-column li {
     margin-bottom: 0.5rem;
 }
 
-.footer-column a, .footer-column p {
+.footer-column a,
+.footer-column p {
     color: var(--text-dark);
 }
 
@@ -465,56 +451,33 @@ a:hover {
 
 .copyright {
     text-align: center;
-    padding: 1rem 0;
-    background-color: rgba(0,0,0,0.05);
+    padding: 1.5rem 0;
+    background-color: rgba(0, 0, 0, 0.05);
     font-size: 0.9rem;
 }
 
-/* --- WhatsApp Float Button --- */
-.whatsapp-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 40px;
-    right: 40px;
-    background-color: #25D366;
-    color: #FFF;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-    z-index: 100;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.3s;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.1);
-}
-
 /* --- Responsive Design --- */
-@media (max-width: 1060px) {
+@media (max-width: 1100px) {
     .category-grid {
         flex-direction: column;
     }
 }
 
-
 @media (max-width: 992px) {
     .product-detail-layout {
-        grid-template-columns: 1fr; /* Stack columns on tablets */
+        grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 768px) {
-    .section-title, .hero-title {
-        font-size: 2rem;
+    .section-title {
+        font-size: 2.2rem;
     }
+
     .hamburger-menu {
         display: block;
     }
+
     .main-nav ul {
         display: none;
         flex-direction: column;
@@ -524,26 +487,29 @@ a:hover {
         width: 100%;
         background-color: var(--white-pastel);
         padding: 1rem 0;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
+
     .main-nav ul.active {
         display: flex;
     }
+
     .main-nav li {
         text-align: center;
         padding: 0.5rem 0;
+        margin-right: 0;
     }
+
     .footer-container {
         flex-direction: column;
         text-align: center;
     }
+
     .footer-column h4::after {
         left: 50%;
         transform: translateX(-50%);
     }
-    .social-media {
-        margin-top: 1rem;
-    }
+
     .product-detail-title {
         font-size: 2.2rem;
     }
