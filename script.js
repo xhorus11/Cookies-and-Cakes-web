@@ -91,8 +91,7 @@ function setActiveNav() {
 
 function loadPageContent() {
     const page = window.location.pathname.split("/").pop();
-    const productGrid = document.getElementById('product-grid');
-
+    
     switch(page) {
         case 'index.html':
         case '':
@@ -100,29 +99,18 @@ function loadPageContent() {
             loadProductPreviews();
             break;
         case 'tortas.html':
-            if (productGrid) {
-                const products = productsData.filter(p => p.category === 'torta');
-                renderProducts(products, productGrid);
-            }
+            loadCategorizedProducts(['torta'], '#product-grid');
             break;
         case 'galletas.html':
-            if (productGrid) {
-                const products = productsData.filter(p => p.category === 'galleta');
-                renderProducts(products, productGrid);
-            }
+            loadCategorizedProducts(['galleta'], '#product-grid');
             break;
         case 'reposteria.html':
-             if (productGrid) {
-                const products = productsData.filter(p => p.category === 'reposteria');
-                renderProducts(products, productGrid);
-            }
+            loadCategorizedProducts(['reposteria'], '#product-grid');
             break;
         case 'Personalization.html':
-            // La página de personalización ahora solo muestra el formulario, 
-            // pero si en el futuro quieres mostrar ejemplos, esta es la lógica.
+            const productGrid = document.getElementById('product-grid');
             if (productGrid) {
-                const products = productsData.filter(p => p.category === 'personalizado');
-                renderProducts(products, productGrid);
+                loadCategorizedProducts(['personalizado'], '#product-grid', 3);
             }
             break;
         case 'detalles.html':
@@ -157,21 +145,19 @@ function initHeroSlider() {
 }
 
 function loadProductPreviews() {
-    const tortaGrid = document.getElementById('torta-product-grid');
-    if (tortaGrid) {
-        const tortas = productsData.filter(p => p.category === 'torta').slice(0, 3);
-        renderProducts(tortas, tortaGrid);
+    loadCategorizedProducts(['torta'], '#torta-product-grid', 3);
+    loadCategorizedProducts(['galleta'], '#galleta-product-grid', 3);
+    loadCategorizedProducts(['reposteria'], '#reposteria-product-grid', 3);
+}
+
+function loadCategorizedProducts(categories, gridSelector, limit) {
+    const productGrid = document.querySelector(gridSelector);
+    if (!productGrid) return;
+    let productsToDisplay = productsData.filter(p => categories.includes(p.category));
+    if (limit) {
+        productsToDisplay = productsToDisplay.slice(0, limit);
     }
-    const galletaGrid = document.getElementById('galleta-product-grid');
-    if (galletaGrid) {
-        const galletas = productsData.filter(p => p.category === 'galleta').slice(0, 3);
-        renderProducts(galletas, galletaGrid);
-    }
-    const reposteriaGrid = document.getElementById('reposteria-product-grid');
-    if (reposteriaGrid) {
-        const reposteria = productsData.filter(p => p.category === 'reposteria').slice(0, 3);
-        renderProducts(reposteria, reposteriaGrid);
-    }
+    renderProducts(productsToDisplay, productGrid);
 }
 
 function renderProducts(products, gridElement) {
@@ -236,18 +222,13 @@ function initFaqAccordion() {
         const question = item.querySelector('.faq-question');
         question.addEventListener('click', () => {
             const answer = item.querySelector('.faq-answer');
-            // Primero, cerramos todos los demás items
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.classList.remove('active');
-                    otherItem.querySelector('.faq-answer').style.maxHeight = null;
-                }
-            });
-            // Luego, abrimos o cerramos el item actual
             const isActive = item.classList.toggle('active');
+
             if (isActive) {
+                // Set max-height to the scrollHeight to trigger the transition
                 answer.style.maxHeight = answer.scrollHeight + "px";
             } else {
+                // Set max-height to null (or "0px") to collapse it
                 answer.style.maxHeight = null;
             }
         });
@@ -274,7 +255,12 @@ function sendOrderToWhatsApp() {
     message += `📱 *WhatsApp:* ${phone}\n`;
     if (email) message += `📧 *Correo:* ${email}\n`;
     message += `🎂 *Tipo de Producto:* ${productType}\n`;
-    if (deliveryDate) message += `🗓️ *Fecha de Retiro Deseada:* ${deliveryDate}\n`;
+    if (deliveryDate) {
+        // Formatear la fecha para que sea más legible
+        const date = new Date(deliveryDate);
+        const formattedDate = new Intl.DateTimeFormat('es-CL', { dateStyle: 'long' }).format(date);
+        message += `🗓️ *Fecha de Retiro Deseada:* ${formattedDate}\n`;
+    }
     message += `\n✨ *Detalles de la cotización:*\n${details}\n\n`;
     message += `¡Muchas gracias!`;
 
