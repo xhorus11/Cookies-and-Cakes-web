@@ -9,18 +9,26 @@ const productsData = [
     { id: 'torta-limon-amapolas', category: 'torta', name: 'Torta Limón y Amapolas', price: '$23.000', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Torta+Limon', description: 'Fresco y aromático bizcocho de limón con semillas de amapola, relleno con curd de limón y cubierto con un glaseado suave.', materials: [ 'Limón', 'Semillas de amapola', 'Harina', 'Azúcar', 'Yogurt', 'Mantequilla' ] },
     { id: 'torta-panqueque-naranja', category: 'torta', name: 'Torta Panqueque Naranja', price: '$27.000', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Panqueque+Naranja', description: 'Finas capas de panqueques intercaladas con una delicada crema de naranja y manjar, cubierta con chocolate.', materials: [ 'Naranja', 'Manjar', 'Harina', 'Huevos', 'Chocolate', 'Leche' ] },
     
-    // --- GALLETAS ---
+    // --- GALLETAS (7 ejemplos) ---
     { id: 'cookies-chocolate-chip', category: 'galleta', name: 'Cookies Chocolate Chip', price: '$1.700 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Cookies', description: 'La clásica galleta americana: crujiente por fuera, blanda por dentro y repleta de chips de chocolate semi-amargo.', materials: [ 'Chips de chocolate', 'Harina', 'Mantequilla', 'Azúcar rubia', 'Huevo', 'Bicarbonato' ] },
     { id: 'galletas-vainilla', category: 'galleta', name: 'Galletas de Vainilla', price: '$1.500 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Galletas+Vainilla', description: 'Tiernas galletas de mantequilla con un toque de vainilla, decoradas a mano con glaseado real. Perfectas para regalos y eventos.', materials: [ 'Harina', 'Mantequilla', 'Azúcar', 'Huevo', 'Vainilla', 'Azúcar glas' ] },
     { id: 'galletas-craqueladas', category: 'galleta', name: 'Galletas Craqueladas', price: '$1.800 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Craqueladas', description: 'Intensas galletas de chocolate con una textura similar a un brownie, cubiertas de azúcar glas que se craquela al hornear.', materials: [ 'Chocolate amargo', 'Cacao', 'Azúcar glas', 'Huevo', 'Harina' ] },
+    { id: 'galletas-avena-pasas', category: 'galleta', name: 'Galletas Avena y Pasas', price: '$1.600 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Avena+y+Pasas', description: 'Una galleta contundente y sabrosa, con la textura de la avena y el dulzor de las pasas. Ligeramente especiada con canela.', materials: [ 'Avena', 'Pasas', 'Harina', 'Canela', 'Mantequilla', 'Azúcar rubia' ] },
+    { id: 'galletas-limon', category: 'galleta', name: 'Galletas de Limón', price: '$1.600 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Galletas+Limon', description: 'Galletas suaves y mantecosas con un intenso sabor a limón y un glaseado brillante.', materials: [ 'Limón', 'Harina', 'Mantequilla', 'Azúcar', 'Huevo' ] },
+    { id: 'galletas-jengibre', category: 'galleta', name: 'Galletas de Jengibre', price: '$1.700 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Jengibre', description: 'Clásicas galletas especiadas con jengibre, canela y clavo de olor. Perfectas para la temporada navideña o para acompañar un té.', materials: [ 'Jengibre', 'Canela', 'Melaza', 'Harina', 'Mantequilla' ] },
+    { id: 'galletas-matcha', category: 'galleta', name: 'Galletas de Matcha', price: '$1.900 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Matcha', description: 'Originales galletas con el distintivo sabor del té verde matcha y trocitos de chocolate blanco.', materials: [ 'Té matcha', 'Chocolate blanco', 'Harina', 'Mantequilla', 'Azúcar' ] },
 
-    // --- REPOSTERÍA Y OTROS ---
+    // --- REPOSTERÍA (7 ejemplos) ---
     { id: 'alfajores-maicena', category: 'reposteria', name: 'Alfajores de Maicena', price: '$1.600 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Alfajores', description: 'Suaves y delicados alfajores que se deshacen en la boca, rellenos de manjar y con los bordes pasados por coco rallado.', materials: [ 'Maicena', 'Manjar', 'Coco rallado', 'Harina', 'Mantequilla', 'Yemas de huevo' ] },
     { id: 'brownies-chocolate', category: 'reposteria', name: 'Brownies de Chocolate', price: '$2.200 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Brownies', description: 'Cuadrados de chocolate intensos y húmedos, con una capa superior crujiente. Pueden incluir nueces o chips de chocolate extra.', materials: ['Chocolate', 'Mantequilla', 'Azúcar', 'Huevos', 'Harina', 'Nueces (opcional)'] },
     { id: 'macarons-surtidos', category: 'reposteria', name: 'Macarons Surtidos', price: '$2.000 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Macarons', description: 'Finos merengues de almendra con un relleno cremoso. Disponibles en una variedad de sabores como chocolate, frambuesa, pistacho y maracuyá.', materials: [ 'Harina de almendras', 'Claras de huevo', 'Azúcar', 'Rellenos variados' ] },
+    { id: 'cupcakes-vainilla', category: 'reposteria', name: 'Cupcakes de Vainilla', price: '$2.000 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Cupcakes', description: 'Esponjosos cupcakes de vainilla cubiertos con un suave buttercream de vainilla y chispas de colores.', materials: [ 'Vainilla', 'Harina', 'Mantequilla', 'Leche', 'Huevos' ] },
+    { id: 'pie-de-limon', category: 'reposteria', name: 'Mini Pie de Limón', price: '$2.500 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Mini+Pies', description: 'Porción individual del clásico pie de limón, con base de galleta, relleno cremoso y merengue italiano.', materials: [ 'Limones', 'Leche condensada', 'Galletas', 'Mantequilla', 'Claras de huevo' ] },
+    { id: 'donas-glaseadas', category: 'reposteria', name: 'Donas Glaseadas', price: '$1.800 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Donas', description: 'Donas horneadas, esponjosas y ligeras, cubiertas con un glaseado de azúcar o de chocolate.', materials: [ 'Harina', 'Leche', 'Levadura', 'Azúcar glas', 'Mantequilla' ] },
+    { id: 'rollos-canela', category: 'reposteria', name: 'Rollos de Canela', price: '$2.300 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Rollos+Canela', description: 'Tiernos rollos de masa dulce con un generoso relleno de canela y azúcar, cubiertos con un glaseado de queso crema.', materials: [ 'Canela', 'Queso crema', 'Harina', 'Levadura', 'Mantequilla' ] },
 
     // --- PERSONALIZADOS ---
-    { id: 'cupcakes-personalizados', category: 'personalizado', name: 'Cupcakes Personalizados', price: 'Desde $2.000 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Cupcakes', description: 'Nuestros cupcakes son la porción perfecta de felicidad. Elige el sabor del bizcocho y el frosting a tu gusto. Ideales para mesas dulces.', materials: [ 'Ingredientes varían según la elección del cliente', 'Base de harina, azúcar, huevos, mantequilla' ] },
+    { id: 'cupcakes-personalizados', category: 'personalizado', name: 'Cupcakes Personalizados', price: 'Desde $2.000 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Cupcakes+Pers.', description: 'Nuestros cupcakes son la porción perfecta de felicidad. Elige el sabor del bizcocho y el frosting a tu gusto. Ideales para mesas dulces.', materials: [ 'Ingredientes varían según la elección del cliente', 'Base de harina, azúcar, huevos, mantequilla' ] },
     { id: 'torta-de-boda', category: 'personalizado', name: 'Torta de Boda', price: 'Consultar', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Torta+Boda', description: 'Diseñamos la torta de tus sueños para tu día especial. Múltiples pisos, sabores y decoraciones florales o temáticas. Contáctanos para una cotización.', materials: ['Ingredientes premium', 'Diseño a medida', 'Flores naturales o de azúcar', 'Fondant o buttercream'] },
     { id: 'galletas-corporativas', category: 'personalizado', name: 'Galletas Corporativas', price: 'Consultar', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Galletas+Logo', description: 'Galletas de mantequilla personalizadas con el logo de tu empresa en papel de azúcar comestible. Perfectas para eventos, regalos a clientes o activaciones de marca.', materials: ['Mantequilla', 'Harina', 'Azúcar', 'Papel de azúcar comestible', 'Tinta comestible'] }
 ];
@@ -52,6 +60,7 @@ function loadFooter() {
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="tortas.html">Tortas</a></li>
                     <li><a href="galletas.html">Galletas</a></li>
+                    <li><a href="reposteria.html">Repostería</a></li>
                     <li><a href="Personalization.html">Personalizados</a></li>
                     <li><a href="faq.html">Preguntas Frecuentes</a></li>
                 </ul>
@@ -92,10 +101,13 @@ function loadPageContent() {
             loadCategorizedProducts(['torta'], '#product-grid');
             break;
         case 'galletas.html':
-            loadCategorizedProducts(['galleta', 'reposteria'], '#product-grid');
+            loadCategorizedProducts(['galleta'], '#product-grid');
+            break;
+        case 'reposteria.html':
+            loadCategorizedProducts(['reposteria'], '#product-grid');
             break;
         case 'Personalization.html':
-            loadCategorizedProducts(['personalizado'], '#product-grid');
+            loadCategorizedProducts(['personalizado'], '#product-grid', 3);
             break;
         case 'detalles.html':
             loadProductDetails();
@@ -215,13 +227,27 @@ function initFaqAccordion() {
 function sendOrderToWhatsApp() {
     const name = document.getElementById('name').value.trim();
     const phone = document.getElementById('whatsappPhone').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const productType = document.getElementById('productType').value;
     const details = document.getElementById('customDetails').value.trim();
+    const deliveryDate = document.getElementById('deliveryDate').value;
+
     if (!name || !phone || !details) {
-        alert('Por favor, completa todos los campos requeridos.');
+        alert('Por favor, completa los campos requeridos: Nombre, WhatsApp y Descripción de tu idea.');
         return;
     }
+    
     const businessWhatsAppNumber = "56961961556"; 
-    const message = `¡Hola C&C Cookies and Cakes! 👋 Quisiera cotizar un pedido personalizado:\n\n👤 *Nombre:* ${name}\n📱 *WhatsApp:* ${phone}\n✨ *Detalles de la cotización:* ${details}\n\n¡Muchas gracias!`;
+    
+    let message = `¡Hola C&C Cookies and Cakes! 👋 Quisiera cotizar un pedido personalizado:\n\n`;
+    message += `👤 *Nombre:* ${name}\n`;
+    message += `📱 *WhatsApp:* ${phone}\n`;
+    if (email) message += `📧 *Correo:* ${email}\n`;
+    message += `🎂 *Tipo de Producto:* ${productType}\n`;
+    if (deliveryDate) message += `🗓️ *Fecha de Retiro Deseada:* ${deliveryDate}\n`;
+    message += `\n✨ *Detalles de la cotización:*\n${details}\n\n`;
+    message += `¡Muchas gracias!`;
+
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${businessWhatsAppNumber}?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank').focus();

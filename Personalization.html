@@ -24,6 +24,7 @@
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="tortas.html">Tortas</a></li>
                     <li><a href="galletas.html">Galletas</a></li>
+                    <li><a href="reposteria.html">Repostería</a></li>
                     <li><a href="Personalization.html">Personalizados</a></li>
                     <li><a href="faq.html">Preguntas Frecuentes</a></li>
                 </ul>
@@ -31,28 +32,41 @@
         </div>
     </header>
 
-    <main id="productos" class="container">
-        <h1 class="section-title">Personalizados y Festivos</h1>
-        <p class="section-subtitle">Ideas para tus celebraciones especiales. ¡Todo es personalizable!</p>
-        <div id="product-grid" class="product-grid"></div>
-
-        <div class="custom-form-section">
-            <h2 class="section-title">Cuéntanos tu Idea</h2>
-            <p class="section-subtitle">Completa el formulario y crearemos la delicia de tus sueños.</p>
+    <main class="container">
+        <div class="custom-form-section" style="border-top: none; margin-top: 0; padding-top: 0;">
+            <h1 class="section-title">Personaliza tu Pedido</h1>
+            <p class="section-subtitle">Cuéntanos tu idea y la haremos realidad. Completa el formulario y te contactaremos a la brevedad.</p>
             <form id="customOrderForm" class="custom-form">
                 <div class="form-group">
                     <label for="name">Tu Nombre:</label>
                     <input type="text" id="name" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="whatsappPhone">Tu Número de WhatsApp:</label>
-                    <input type="tel" id="whatsappPhone" name="whatsappPhone" required placeholder="Ej: 912345678">
+                    <label for="whatsappPhone">Tu Número de WhatsApp (con código de país):</label>
+                    <input type="tel" id="whatsappPhone" name="whatsappPhone" required placeholder="Ej: 56912345678">
                 </div>
                 <div class="form-group">
-                    <label for="customDetails">Cotiza tu idea:</label>
-                    <textarea id="customDetails" name="customDetails" rows="6" required placeholder="Ej: Torta para 20 personas, sabor manjar-nuez, con temática de unicornio y el nombre 'Isidora'."></textarea>
+                    <label for="email">Tu Correo Electrónico (opcional):</label>
+                    <input type="email" id="email" name="email">
                 </div>
-                <button type="button" class="btn btn-primary" onclick="sendOrderToWhatsApp()">Enviar Cotización por WhatsApp</button>
+                <div class="form-group">
+                    <label for="productType">Tipo de Producto:</label>
+                    <select id="productType" name="productType">
+                        <option value="Torta">Torta</option>
+                        <option value="Galletas">Galletas</option>
+                        <option value="Cupcakes">Cupcakes</option>
+                        <option value="Otro">Otro tipo de repostería</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="customDetails">Describe tu idea:</label>
+                    <textarea id="customDetails" name="customDetails" rows="6" required placeholder="Ej: Torta para 20 personas, sabor manjar-nuez, con temática de unicornio en tonos pastel y el nombre 'Isidora'."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="deliveryDate">Fecha de Retiro Deseada (opcional):</label>
+                    <input type="date" id="deliveryDate" name="deliveryDate">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="sendOrderToWhatsApp()">Enviar Pedido por WhatsApp</button>
             </form>
         </div>
     </main>

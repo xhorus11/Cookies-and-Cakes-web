@@ -43,8 +43,8 @@ a:hover { color: var(--text-dark); }
 .logo-img { height: 50px; width: 50px; }
 .logo-text { font-family: var(--font-logo); font-size: 2.2rem; font-weight: normal; }
 .logo-text-secondary { font-family: var(--font-logo); font-size: 2.2rem; font-weight: normal; margin-left: 8px; }
-.main-nav ul { list-style: none; display: flex; gap: 2rem; }
-.main-nav a { color: var(--text-dark); font-weight: 700; padding-bottom: 5px; position: relative; }
+.main-nav ul { list-style: none; display: flex; gap: 1.5rem; }
+.main-nav a { color: var(--text-dark); font-weight: 700; padding-bottom: 5px; position: relative; font-size: 0.9rem;}
 .main-nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--pink-accent); transition: width 0.3s ease; }
 .main-nav a:hover::after, .main-nav a.active::after { width: 100%; }
 .hamburger-menu { display: none; background: none; border: none; font-size: 1.5rem; color: var(--text-dark); cursor: pointer; }
@@ -104,7 +104,7 @@ a:hover { color: var(--text-dark); }
 .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, padding 0.5s ease; padding: 0 1rem; }
 .faq-answer p { margin-bottom: 1rem; }
 .faq-item.active .faq-question i { transform: rotate(180deg); }
-.faq-item.active .faq-answer { padding: 1rem; }
+.faq-item.active .faq-answer { padding-top: 0.5rem; }
 
 /* --- Footer --- */
 .main-footer-section { background-color: var(--pink-pastel); color: var(--text-dark); padding-top: 3rem; }
@@ -131,7 +131,7 @@ a:hover { color: var(--text-dark); }
 /* --- Responsive Design --- */
 @media (max-width: 992px) {
     .product-detail-layout { grid-template-columns: 1fr; }
-    .logo-text, .logo-text-secondary { display: none; }
+    .logo-text-secondary { display: none; }
 }
 @media (max-width: 768px) {
     .section-title { font-size: 2.2rem; }
@@ -145,4 +145,5 @@ a:hover { color: var(--text-dark); }
     .footer-column h4::after { left: 50%; transform: translateX(-50%); }
     .product-detail-title { font-size: 2.2rem; }
     .whatsapp-text-container { display: none; }
+    .logo-text { display: none; }
 }
