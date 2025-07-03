@@ -46,6 +46,24 @@
         .product-name { font-family: var(--font-headings); font-size: 1.5rem; margin-bottom: 0.5rem; }
         .product-price { font-size: 1.2rem; font-weight: 700; color: var(--pink-accent); margin-bottom: 1rem; }
         .product-card-action { padding: 0 1.5rem 1.5rem; }
+        .main-footer-section { background-color: var(--pink-pastel); color: var(--text-dark); padding-top: 3rem; }
+        .footer-container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; width: 90%; max-width: 1200px; margin: 0 auto; padding-bottom: 3rem; }
+        .footer-column { flex: 1; min-width: 250px; }
+        .footer-column h4 { font-family: var(--font-headings); font-size: 1.5rem; margin-bottom: 1rem; position: relative; padding-bottom: 0.5rem; }
+        .footer-column h4::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 2px; background: var(--pink-accent); }
+        .footer-column ul { list-style: none; padding: 0; }
+        .footer-column li { margin-bottom: 0.5rem; }
+        .footer-column a, .footer-column p { color: var(--text-dark); }
+        .social-media a { font-size: 2rem; margin-right: 1.5rem; }
+        .map-container iframe { border-radius: 10px; margin-top: 0.5rem; }
+        .copyright { text-align: center; padding: 1.5rem 0; background-color: rgba(0, 0, 0, 0.05); font-size: 0.9rem; }
+        .whatsapp-float-enhanced { position: fixed; bottom: 30px; right: 30px; z-index: 100; display: flex; align-items: center; gap: 10px; }
+        .whatsapp-icon-container { width: 60px; height: 60px; background-color: #25D366; color: #FFF; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); transition: transform 0.3s ease; }
+        .whatsapp-float-enhanced:hover .whatsapp-icon-container { transform: scale(1.1); }
+        .whatsapp-text-container { background-color: #fff; padding: 8px 15px; border-radius: 20px; box-shadow: var(--shadow); position: relative; opacity: 0; transform: translateX(10px); transition: opacity 0.3s ease, transform 0.3s ease; pointer-events: none; }
+        .whatsapp-float-enhanced:hover .whatsapp-text-container { opacity: 1; transform: translateX(0); }
+        .whatsapp-text { font-weight: 700; font-size: 0.9rem; color: var(--text-dark); white-space: nowrap; }
+        .whatsapp-arrow { width: 10px; height: 10px; background-color: #fff; position: absolute; top: 50%; right: -5px; transform: translateY(-50%) rotate(45deg); }
         @media (max-width: 992px) { .logo-text-secondary { display: none; } }
         @media (max-width: 768px) {
             .hamburger-menu { display: block; }
@@ -53,6 +71,9 @@
             .main-nav ul.active { display: flex; }
             .main-nav li { text-align: center; padding: 0.5rem 0; }
             .logo-text { display: none; }
+            .footer-container { flex-direction: column; text-align: center; }
+            .footer-column h4::after { left: 50%; transform: translateX(-50%); }
+            .whatsapp-text-container { display: none; }
         }
     </style>
 </head>
@@ -82,6 +103,16 @@
         <h1 class="section-title">Nuestras Galletas</h1>
         <div id="product-grid" class="product-grid"></div>
     </main>
+
+    <footer id="contacto" class="main-footer-section"></footer>
+
+    <a href="https://wa.me/56961961556?text=Hola%20C&C%20Cookies%20and%20Cakes!%20Tengo%20una%20consulta." class="whatsapp-float-enhanced" target="_blank">
+        <div class="whatsapp-text-container">
+            <div class="whatsapp-text">¿Dudas o consultas?</div>
+            <div class="whatsapp-arrow"></div>
+        </div>
+        <div class="whatsapp-icon-container"><i class="fab fa-whatsapp"></i></div>
+    </a>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -118,10 +149,25 @@
                 });
             }
 
+            function loadFooter() {
+                const footer = document.getElementById('contacto');
+                if (footer) {
+                    footer.innerHTML = `
+                    <div class="footer-container">
+                        <div class="footer-column"><h4>Navegación</h4><ul><li><a href="index.html">Inicio</a></li><li><a href="tortas.html">Tortas</a></li><li><a href="galletas.html">Galletas</a></li><li><a href="reposteria.html">Repostería</a></li><li><a href="Personalization.html">Personalizados</a></li><li><a href="faq.html">Preguntas Frecuentes</a></li></ul></div>
+                        <div class="footer-column"><h4>Síguenos</h4><div class="social-media"><a href="https://www.instagram.com/c_y_c_cookies_and_cakes/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://wa.me/56961961556" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div></div>
+                        <div class="footer-column map-container"><h4>Ubicación para Retiros</h4><p>La Florida, Santiago, Chile</p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53225.9772345856!2d-70.61834383125!3d-33.513599999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d007a34965c7%3A0x889856d3b37996a0!2sLa%20Florida%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses-419!2scl!4v1718155099513!5m2!1ses-419!2scl" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                    </div>
+                    <div class="copyright"><p>&copy; ${new Date().getFullYear()} C&C Cookies and Cakes. Todos los derechos reservados.</p></div>`;
+                }
+            }
+
             const productGrid = document.getElementById('product-grid');
             const galletas = productsData.filter(p => p.category === 'galleta');
             renderProducts(galletas, productGrid);
             
+            loadFooter();
+
             const hamburgerMenu = document.getElementById('hamburger-menu');
             const navLinks = document.getElementById('nav-links');
             if (hamburgerMenu && navLinks) {
