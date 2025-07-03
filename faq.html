@@ -4,11 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preguntas Frecuentes - C&C Cookies and Cakes</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --white-pastel: #FFF8F5;
+            --pink-pastel: #FADADD;
+            --pink-accent: #E18AAA;
+            --text-dark: #4A4A4A;
+            --text-light: #FFFFFF;
+            --font-headings: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+            --font-logo: 'Great Vibes', cursive;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            --header-height: 80px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-body); color: var(--text-dark); background-color: var(--white-pastel); line-height: 1.6; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 4rem 0; }
+        a { text-decoration: none; color: var(--pink-accent); transition: color 0.3s ease; }
+        a:hover { color: var(--text-dark); }
+        .section-title { font-family: var(--font-headings); font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: var(--text-dark); }
+        .main-header { background-color: rgba(255, 248, 245, 0.9); padding: 0.5rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); backdrop-filter: blur(5px); height: var(--header-height); }
+        .header-container { width: 90%; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 100%; }
+        .logo { display: flex; align-items: center; gap: 8px; color: var(--text-dark); }
+        .logo-img { height: 50px; width: 50px; }
+        .logo-text { font-family: var(--font-logo); font-size: 2.2rem; font-weight: normal; }
+        .logo-text-secondary { font-family: var(--font-logo); font-size: 2.2rem; font-weight: normal; margin-left: 8px; }
+        .main-nav ul { list-style: none; display: flex; gap: 1.5rem; }
+        .main-nav a { color: var(--text-dark); font-weight: 700; padding-bottom: 5px; position: relative; font-size: 0.9rem;}
+        .main-nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--pink-accent); transition: width 0.3s ease; }
+        .main-nav a:hover::after, .main-nav a.active::after { width: 100%; }
+        .hamburger-menu { display: none; background: none; border: none; font-size: 1.5rem; color: var(--text-dark); cursor: pointer; }
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--pink-pastel); margin-bottom: 1rem; }
+        .faq-question { width: 100%; background: none; border: none; text-align: left; font-family: var(--font-headings); font-size: 1.3rem; padding: 1rem 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; }
+        .faq-question i { transition: transform 0.3s ease; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out; }
+        .faq-answer p { padding: 1rem 0; margin: 0; }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+        .main-footer-section { background-color: var(--pink-pastel); color: var(--text-dark); padding-top: 3rem; }
+        .footer-container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; width: 90%; max-width: 1200px; margin: 0 auto; padding-bottom: 3rem; }
+        .footer-column { flex: 1; min-width: 250px; }
+        .footer-column h4 { font-family: var(--font-headings); font-size: 1.5rem; margin-bottom: 1rem; position: relative; padding-bottom: 0.5rem; }
+        .footer-column h4::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 2px; background: var(--pink-accent); }
+        .footer-column ul { list-style: none; padding: 0; }
+        .footer-column li { margin-bottom: 0.5rem; }
+        .footer-column a, .footer-column p { color: var(--text-dark); }
+        .social-media a { font-size: 2rem; margin-right: 1.5rem; }
+        .map-container iframe { border-radius: 10px; margin-top: 0.5rem; }
+        .copyright { text-align: center; padding: 1.5rem 0; background-color: rgba(0, 0, 0, 0.05); font-size: 0.9rem; }
+        @media (max-width: 992px) { .logo-text-secondary { display: none; } }
+        @media (max-width: 768px) {
+            .hamburger-menu { display: block; }
+            .main-nav ul { display: none; flex-direction: column; position: absolute; top: var(--header-height); left: 0; width: 100%; background-color: var(--white-pastel); padding: 1rem 0; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); }
+            .main-nav ul.active { display: flex; }
+            .main-nav li { text-align: center; padding: 0.5rem 0; }
+            .footer-container { flex-direction: column; text-align: center; }
+            .footer-column h4::after { left: 50%; transform: translateX(-50%); }
+            .logo-text { display: none; }
+        }
+    </style>
 </head>
 <body>
     <header class="main-header">
@@ -55,13 +114,59 @@
     </main>
 
     <footer id="contacto" class="main-footer-section"></footer>
-    <a href="https://wa.me/56961961556?text=Hola%20C&C%20Cookies%20and%20Cakes!%20Tengo%20una%20consulta." class="whatsapp-float-enhanced" target="_blank">
-        <div class="whatsapp-text-container">
-            <div class="whatsapp-text">¿Dudas o consultas?</div>
-            <div class="whatsapp-arrow"></div>
-        </div>
-        <div class="whatsapp-icon-container"><i class="fab fa-whatsapp"></i></div>
-    </a>
-    <script src="script.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            function initFaqAccordion() {
+                const faqItems = document.querySelectorAll('.faq-item');
+                faqItems.forEach(item => {
+                    const question = item.querySelector('.faq-question');
+                    question.addEventListener('click', () => {
+                        const answer = item.querySelector('.faq-answer');
+                        const isActive = item.classList.contains('active');
+                        
+                        // Cerrar todos los demás items
+                        faqItems.forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.classList.remove('active');
+                                otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                            }
+                        });
+
+                        // Abrir o cerrar el item actual
+                        if (!isActive) {
+                            item.classList.add('active');
+                            answer.style.maxHeight = answer.scrollHeight + "px";
+                        } else {
+                            item.classList.remove('active');
+                            answer.style.maxHeight = null;
+                        }
+                    });
+                });
+            }
+
+            function loadFooter() {
+                const footer = document.getElementById('contacto');
+                if (footer) {
+                    footer.innerHTML = `
+                    <div class="footer-container">
+                        <div class="footer-column"><h4>Navegación</h4><ul><li><a href="index.html">Inicio</a></li><li><a href="tortas.html">Tortas</a></li><li><a href="galletas.html">Galletas</a></li><li><a href="reposteria.html">Repostería</a></li><li><a href="Personalization.html">Personalizados</a></li><li><a href="faq.html">Preguntas Frecuentes</a></li></ul></div>
+                        <div class="footer-column"><h4>Síguenos</h4><div class="social-media"><a href="https://www.instagram.com/c_y_c_cookies_and_cakes/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://wa.me/56961961556" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div></div>
+                        <div class="footer-column map-container"><h4>Ubicación para Retiros</h4><p>La Florida, Santiago, Chile</p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53225.9772345856!2d-70.61834383125!3d-33.513599999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d007a34965c7%3A0x889856d3b37996a0!2sLa%20Florida%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses-419!2scl!4v1718155099513!5m2!1ses-419!2scl" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                    </div>
+                    <div class="copyright"><p>&copy; ${new Date().getFullYear()} C&C Cookies and Cakes. Todos los derechos reservados.</p></div>`;
+                }
+            }
+
+            initFaqAccordion();
+            loadFooter();
+
+            const hamburgerMenu = document.getElementById('hamburger-menu');
+            const navLinks = document.getElementById('nav-links');
+            if (hamburgerMenu && navLinks) {
+                hamburgerMenu.addEventListener('click', () => navLinks.classList.toggle('active'));
+            }
+        });
+    </script>
 </body>
 </html>
