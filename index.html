@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cookies and Cakes - Repostería Artesanal</title>
+    <title>C&C Cookies and Cakes - Repostería Artesanal</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +18,10 @@
     <!-- Header Section -->
     <header class="main-header">
         <div class="header-container">
-            <a href="index.html" class="logo">Cookies &amp; Cakes</a>
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Logo de C&C Cookies and Cakes" class="logo-img">
+                <span class="logo-text">C&C Cookies and Cakes</span>
+            </a>
             <nav class="main-nav">
                 <button class="hamburger-menu" id="hamburger-menu" aria-label="Toggle menu">
                     <i class="fas fa-bars"></i>
@@ -27,37 +30,60 @@
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="tortas.html">Tortas</a></li>
                     <li><a href="galletas.html">Galletas</a></li>
-                    <li><a href="personalizados.html">Personalizados</a></li>
+                    <li><a href="Personalization.html">Personalizados</a></li>
+                    <li><a href="faq.html">Preguntas Frecuentes</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Category Selection Section -->
-    <main class="container category-selection-container">
-        <h1 class="section-title">Nuestras Creaciones</h1>
-        <p class="section-subtitle">Hechas con amor, para endulzar tus momentos.</p>
-
-        <div class="category-grid">
-            <!-- Link a la página de tortas -->
-            <a href="tortas.html" class="category-card" style="background-image: url('https://placehold.co/400x300/f8c8dc/4a4a4a?text=Tortas');">
-                <div class="category-card-overlay">
-                    <h2>Tortas</h2>
-                </div>
-            </a>
-            <!-- Link a la página de galletas -->
-            <a href="galletas.html" class="category-card" style="background-image: url('https://placehold.co/400x300/f8c8dc/4a4a4a?text=Galletas');">
-                 <div class="category-card-overlay">
-                    <h2>Galletas</h2>
-                </div>
-            </a>
-            <!-- Link a la página de personalizados -->
-            <a href="personalizados.html" class="category-card" style="background-image: url('https://placehold.co/400x300/f8c8dc/4a4a4a?text=Personalizados');">
-                 <div class="category-card-overlay">
-                    <h2>Personalizadas y Festivos</h2>
-                </div>
-            </a>
+    <!-- Hero Section with Background Slider -->
+    <section class="hero-section">
+        <div class="hero-slider">
+            <!-- Las imágenes se añadirán aquí desde JS -->
         </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Endulzando tus momentos especiales</h1>
+            <p class="hero-subtitle">Tortas y galletas hechas con amor y dedicación.</p>
+            <a href="Personalization.html" class="btn btn-primary">Personaliza tu Pedido</a>
+        </div>
+    </section>
+
+    <!-- Products Preview Section -->
+    <main class="container">
+        <!-- Tortas Preview -->
+        <section id="tortas-preview" class="product-preview-section">
+            <h2 class="section-title">Nuestras Tortas</h2>
+            <div id="torta-product-grid" class="product-grid">
+                <!-- Los productos se cargarán aquí -->
+            </div>
+            <div class="see-more-container">
+                <a href="tortas.html" class="btn btn-secondary">Ver Todas las Tortas</a>
+            </div>
+        </section>
+
+        <!-- Galletas Preview -->
+        <section id="galletas-preview" class="product-preview-section">
+            <h2 class="section-title">Nuestras Galletas</h2>
+            <div id="galleta-product-grid" class="product-grid">
+                <!-- Los productos se cargarán aquí -->
+            </div>
+            <div class="see-more-container">
+                <a href="galletas.html" class="btn btn-secondary">Ver Todas las Galletas</a>
+            </div>
+        </section>
+
+        <!-- Repostería Preview -->
+        <section id="reposteria-preview" class="product-preview-section">
+            <h2 class="section-title">Repostería y Otros</h2>
+            <div id="reposteria-product-grid" class="product-grid">
+                <!-- Los productos se cargarán aquí -->
+            </div>
+            <div class="see-more-container">
+                <a href="galletas.html" class="btn btn-secondary">Ver Más</a>
+            </div>
+        </section>
     </main>
 
     <!-- Footer Section -->
@@ -69,7 +95,8 @@
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="tortas.html">Tortas</a></li>
                     <li><a href="galletas.html">Galletas</a></li>
-                    <li><a href="personalizados.html">Personalizados</a></li>
+                    <li><a href="Personalization.html">Personalizados</a></li>
+                    <li><a href="faq.html">Preguntas Frecuentes</a></li>
                 </ul>
             </div>
             <div class="footer-column">
@@ -86,13 +113,19 @@
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; <span id="currentYear"></span> Cookies and Cakes. Todos los derechos reservados.</p>
+            <p>&copy; <span id="currentYear"></span> C&C Cookies and Cakes. Todos los derechos reservados.</p>
         </div>
     </footer>
     
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/56961961556?text=Hola%20Cookies%20and%20Cakes!%20Tengo%20una%20consulta." class="whatsapp-float" target="_blank" aria-label="Chatea con nosotros en WhatsApp">
-        <i class="fab fa-whatsapp"></i>
+    <!-- Enhanced WhatsApp Float Button -->
+    <a href="https://wa.me/56961961556?text=Hola%20C&C%20Cookies%20and%20Cakes!%20Tengo%20una%20consulta." class="whatsapp-float-enhanced" target="_blank" aria-label="Chatea con nosotros en WhatsApp">
+        <div class="whatsapp-text-container">
+            <div class="whatsapp-text">¿Dudas o consultas? ¡Escríbenos!</div>
+            <div class="whatsapp-arrow"></div>
+        </div>
+        <div class="whatsapp-icon-container">
+            <i class="fab fa-whatsapp"></i>
+        </div>
     </a>
 
     <!-- JavaScript -->
