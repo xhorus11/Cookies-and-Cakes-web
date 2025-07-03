@@ -4,11 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestras Tortas - C&C Cookies and Cakes</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --white-pastel: #FFF8F5; --pink-pastel: #FADADD; --pink-accent: #E18AAA;
+            --text-dark: #4A4A4A; --text-light: #FFFFFF; --font-headings: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif; --font-logo: 'Great Vibes', cursive;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.08); --header-height: 80px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-body); color: var(--text-dark); background-color: var(--white-pastel); line-height: 1.6; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 4rem 0; }
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: var(--pink-accent); transition: color 0.3s ease; }
+        a:hover { color: var(--text-dark); }
+        .section-title { font-family: var(--font-headings); font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: var(--text-dark); }
+        .btn { display: inline-block; padding: 12px 28px; border-radius: 50px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; transition: all 0.3s ease; border: 2px solid transparent; cursor: pointer; }
+        .btn-secondary { background-color: transparent; color: var(--pink-accent); border-color: var(--pink-accent); }
+        .btn-secondary:hover { background-color: var(--pink-accent); color: var(--text-light); }
+        .main-header { background-color: rgba(255, 248, 245, 0.9); padding: 0.5rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); backdrop-filter: blur(5px); height: var(--header-height); }
+        .header-container { width: 90%; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 100%; }
+        .logo { display: flex; align-items: center; gap: 8px; color: var(--text-dark); }
+        .logo-img { height: 50px; width: 50px; }
+        .logo-text { font-family: var(--font-logo); font-size: 2.2rem; font-weight: normal; }
+        .logo-text-secondary { font-family: var(--font-logo); font-size: 2.2rem; font-weight: normal; margin-left: 8px; }
+        .main-nav ul { list-style: none; display: flex; gap: 1.5rem; }
+        .main-nav a { color: var(--text-dark); font-weight: 700; padding-bottom: 5px; position: relative; font-size: 0.9rem;}
+        .main-nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--pink-accent); transition: width 0.3s ease; }
+        .main-nav a:hover::after, .main-nav a.active::after { width: 100%; }
+        .hamburger-menu { display: none; background: none; border: none; font-size: 1.5rem; color: var(--text-dark); cursor: pointer; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .product-card { background-color: #fff; border-radius: 15px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); }
+        .product-card-link { text-decoration: none; color: inherit; display: flex; flex-direction: column; flex-grow: 1; }
+        .product-image-container img { width: 100%; height: 280px; object-fit: cover; }
+        .product-info { padding: 1.5rem; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .product-name { font-family: var(--font-headings); font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .product-price { font-size: 1.2rem; font-weight: 700; color: var(--pink-accent); margin-bottom: 1rem; }
+        .product-card-action { padding: 0 1.5rem 1.5rem; }
+        @media (max-width: 992px) { .logo-text-secondary { display: none; } }
+        @media (max-width: 768px) {
+            .hamburger-menu { display: block; }
+            .main-nav ul { display: none; flex-direction: column; position: absolute; top: var(--header-height); left: 0; width: 100%; background-color: var(--white-pastel); padding: 1rem 0; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); }
+            .main-nav ul.active { display: flex; }
+            .main-nav li { text-align: center; padding: 0.5rem 0; }
+            .logo-text { display: none; }
+        }
+    </style>
 </head>
 <body>
     <header class="main-header">
@@ -22,7 +68,7 @@
                 <button class="hamburger-menu" id="hamburger-menu" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
                 <ul id="nav-links">
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="tortas.html">Tortas</a></li>
+                    <li><a href="tortas.html" class="active">Tortas</a></li>
                     <li><a href="galletas.html">Galletas</a></li>
                     <li><a href="reposteria.html">Repostería</a></li>
                     <li><a href="Personalization.html">Personalizados</a></li>
@@ -32,22 +78,62 @@
         </div>
     </header>
 
-    <main id="productos" class="container">
+    <main class="container">
         <h1 class="section-title">Nuestras Tortas</h1>
-        <div id="product-grid" class="product-grid">
-            <!-- Las tortas se cargarán aquí dinámicamente desde JavaScript -->
-        </div>
+        <div id="product-grid" class="product-grid"></div>
     </main>
 
-    <footer id="contacto" class="main-footer-section"></footer>
-    <a href="https://wa.me/56961961556?text=Hola%20C&C%20Cookies%20and%20Cakes!%20Tengo%20una%20consulta." class="whatsapp-float-enhanced" target="_blank">
-        <div class="whatsapp-text-container">
-            <div class="whatsapp-text">¿Dudas o consultas?</div>
-            <div class="whatsapp-arrow"></div>
-        </div>
-        <div class="whatsapp-icon-container"><i class="fab fa-whatsapp"></i></div>
-    </a>
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const productsData = [
+                { id: 'torta-chocolate', category: 'torta', name: 'Torta de Chocolate', price: '$25.000', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Torta+Chocolate' },
+                { id: 'torta-red-velvet', category: 'torta', name: 'Torta Red Velvet', price: '$28.000', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Red+Velvet' },
+                { id: 'torta-zanahoria', category: 'torta', name: 'Torta de Zanahoria', price: '$26.000', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Torta+Zanahoria' },
+                { id: 'cheesecake-frutos-rojos', category: 'torta', name: 'Cheesecake Frutos Rojos', price: '$24.000', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Cheesecake' },
+                { id: 'torta-tres-leches', category: 'torta', name: 'Torta Tres Leches', price: '$22.000', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Tres+Leches' },
+                { id: 'torta-limon-amapolas', category: 'torta', name: 'Torta Limón y Amapolas', price: '$23.000', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Torta+Limon' },
+                { id: 'torta-panqueque-naranja', category: 'torta', name: 'Torta Panqueque Naranja', price: '$27.000', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Panqueque+Naranja' },
+                { id: 'torta-selva-negra', category: 'torta', name: 'Torta Selva Negra', price: '$29.000', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Selva+Negra' }
+            ];
+
+            function renderProducts(products, gridElement) {
+                if (!gridElement) return;
+                gridElement.innerHTML = '';
+                if (products.length === 0) {
+                    gridElement.innerHTML = '<p>No hay productos en esta categoría.</p>';
+                    return;
+                }
+                products.forEach(product => {
+                    const card = document.createElement('article');
+                    card.className = 'product-card';
+                    card.innerHTML = `
+                        <a href="detalles.html?id=${product.id}" class="product-card-link">
+                            <div class="product-image-container">
+                                <img src="${product.image_card}" alt="${product.name}" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">${product.name}</h3>
+                                <p class="product-price">${product.price}</p>
+                            </div>
+                        </a>
+                        <div class="product-card-action">
+                            <a href="detalles.html?id=${product.id}" class="btn btn-secondary">Ver Detalles</a>
+                        </div>
+                    `;
+                    gridElement.appendChild(card);
+                });
+            }
+
+            const productGrid = document.getElementById('product-grid');
+            const tortas = productsData.filter(p => p.category === 'torta');
+            renderProducts(tortas, productGrid);
+            
+            const hamburgerMenu = document.getElementById('hamburger-menu');
+            const navLinks = document.getElementById('nav-links');
+            if (hamburgerMenu && navLinks) {
+                hamburgerMenu.addEventListener('click', () => navLinks.classList.toggle('active'));
+            }
+        });
+    </script>
 </body>
 </html>
-
