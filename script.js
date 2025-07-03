@@ -1,6 +1,6 @@
 // --- BASE DE DATOS DE PRODUCTOS ---
 const productsData = [
-    // --- TORTAS (7 ejemplos) ---
+    // --- TORTAS (8 ejemplos) ---
     { id: 'torta-chocolate', category: 'torta', name: 'Torta de Chocolate', price: '$25.000', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Torta+Chocolate', description: 'Delicioso bizcocho de chocolate húmedo, relleno con manjar y frambuesas frescas, cubierto con un suave ganache de chocolate.', materials: [ 'Harina de trigo', 'Cacao en polvo', 'Huevos de campo', 'Frambuesas frescas', 'Manjar casero', 'Chocolate' ] },
     { id: 'torta-red-velvet', category: 'torta', name: 'Torta Red Velvet', price: '$28.000', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Red+Velvet', description: 'Un clásico inolvidable. Bizcocho de terciopelo rojo, suave y ligeramente achocolatado, con un irresistible frosting de queso crema.', materials: [ 'Harina', 'Azúcar', 'Buttermilk', 'Aceite', 'Huevos', 'Cacao', 'Queso crema' ] },
     { id: 'torta-zanahoria', category: 'torta', name: 'Torta de Zanahoria', price: '$26.000', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Torta+Zanahoria', description: 'Bizcocho especiado y húmedo con zanahoria rallada y nueces trozadas, cubierto con un delicioso frosting de queso crema.', materials: [ 'Zanahoria', 'Harina integral', 'Nueces', 'Canela', 'Huevos', 'Queso crema' ] },
@@ -8,23 +8,20 @@ const productsData = [
     { id: 'torta-tres-leches', category: 'torta', name: 'Torta Tres Leches', price: '$22.000', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Tres+Leches', description: 'Bizcocho esponjoso bañado en una mezcla de tres leches, cubierto con merengue italiano y un toque de canela.', materials: [ 'Leche condensada', 'Leche evaporada', 'Crema de leche', 'Huevos', 'Harina', 'Canela' ] },
     { id: 'torta-limon-amapolas', category: 'torta', name: 'Torta Limón y Amapolas', price: '$23.000', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Torta+Limon', description: 'Fresco y aromático bizcocho de limón con semillas de amapola, relleno con curd de limón y cubierto con un glaseado suave.', materials: [ 'Limón', 'Semillas de amapola', 'Harina', 'Azúcar', 'Yogurt', 'Mantequilla' ] },
     { id: 'torta-panqueque-naranja', category: 'torta', name: 'Torta Panqueque Naranja', price: '$27.000', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Panqueque+Naranja', description: 'Finas capas de panqueques intercaladas con una delicada crema de naranja y manjar, cubierta con chocolate.', materials: [ 'Naranja', 'Manjar', 'Harina', 'Huevos', 'Chocolate', 'Leche' ] },
-    
-    // --- GALLETAS (7 ejemplos) ---
+    { id: 'torta-selva-negra', category: 'torta', name: 'Torta Selva Negra', price: '$29.000', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Selva+Negra', description: 'Capas de bizcocho de chocolate embebido en licor de cereza, con crema chantilly y cerezas. Decorada con virutas de chocolate.', materials: ['Chocolate', 'Cerezas', 'Crema Chantilly', 'Harina', 'Huevos', 'Licor de Cereza'] },
+
+    // --- GALLETAS (6 ejemplos) ---
     { id: 'cookies-chocolate-chip', category: 'galleta', name: 'Cookies Chocolate Chip', price: '$1.700 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Cookies', description: 'La clásica galleta americana: crujiente por fuera, blanda por dentro y repleta de chips de chocolate semi-amargo.', materials: [ 'Chips de chocolate', 'Harina', 'Mantequilla', 'Azúcar rubia', 'Huevo', 'Bicarbonato' ] },
     { id: 'galletas-vainilla', category: 'galleta', name: 'Galletas de Vainilla', price: '$1.500 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Galletas+Vainilla', description: 'Tiernas galletas de mantequilla con un toque de vainilla, decoradas a mano con glaseado real. Perfectas para regalos y eventos.', materials: [ 'Harina', 'Mantequilla', 'Azúcar', 'Huevo', 'Vainilla', 'Azúcar glas' ] },
     { id: 'galletas-craqueladas', category: 'galleta', name: 'Galletas Craqueladas', price: '$1.800 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Craqueladas', description: 'Intensas galletas de chocolate con una textura similar a un brownie, cubiertas de azúcar glas que se craquela al hornear.', materials: [ 'Chocolate amargo', 'Cacao', 'Azúcar glas', 'Huevo', 'Harina' ] },
     { id: 'galletas-avena-pasas', category: 'galleta', name: 'Galletas Avena y Pasas', price: '$1.600 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Avena+y+Pasas', description: 'Una galleta contundente y sabrosa, con la textura de la avena y el dulzor de las pasas. Ligeramente especiada con canela.', materials: [ 'Avena', 'Pasas', 'Harina', 'Canela', 'Mantequilla', 'Azúcar rubia' ] },
     { id: 'galletas-limon', category: 'galleta', name: 'Galletas de Limón', price: '$1.600 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Galletas+Limon', description: 'Galletas suaves y mantecosas con un intenso sabor a limón y un glaseado brillante.', materials: [ 'Limón', 'Harina', 'Mantequilla', 'Azúcar', 'Huevo' ] },
     { id: 'galletas-jengibre', category: 'galleta', name: 'Galletas de Jengibre', price: '$1.700 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Jengibre', description: 'Clásicas galletas especiadas con jengibre, canela y clavo de olor. Perfectas para la temporada navideña o para acompañar un té.', materials: [ 'Jengibre', 'Canela', 'Melaza', 'Harina', 'Mantequilla' ] },
-    { id: 'galletas-matcha', category: 'galleta', name: 'Galletas de Matcha', price: '$1.900 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Matcha', description: 'Originales galletas con el distintivo sabor del té verde matcha y trocitos de chocolate blanco.', materials: [ 'Té matcha', 'Chocolate blanco', 'Harina', 'Mantequilla', 'Azúcar' ] },
 
-    // --- REPOSTERÍA (7 ejemplos) ---
+    // --- REPOSTERÍA (4 ejemplos) ---
     { id: 'alfajores-maicena', category: 'reposteria', name: 'Alfajores de Maicena', price: '$1.600 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Alfajores', description: 'Suaves y delicados alfajores que se deshacen en la boca, rellenos de manjar y con los bordes pasados por coco rallado.', materials: [ 'Maicena', 'Manjar', 'Coco rallado', 'Harina', 'Mantequilla', 'Yemas de huevo' ] },
     { id: 'brownies-chocolate', category: 'reposteria', name: 'Brownies de Chocolate', price: '$2.200 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Brownies', description: 'Cuadrados de chocolate intensos y húmedos, con una capa superior crujiente. Pueden incluir nueces o chips de chocolate extra.', materials: ['Chocolate', 'Mantequilla', 'Azúcar', 'Huevos', 'Harina', 'Nueces (opcional)'] },
     { id: 'macarons-surtidos', category: 'reposteria', name: 'Macarons Surtidos', price: '$2.000 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Macarons', description: 'Finos merengues de almendra con un relleno cremoso. Disponibles en una variedad de sabores como chocolate, frambuesa, pistacho y maracuyá.', materials: [ 'Harina de almendras', 'Claras de huevo', 'Azúcar', 'Rellenos variados' ] },
-    { id: 'cupcakes-vainilla', category: 'reposteria', name: 'Cupcakes de Vainilla', price: '$2.000 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Cupcakes', description: 'Esponjosos cupcakes de vainilla cubiertos con un suave buttercream de vainilla y chispas de colores.', materials: [ 'Vainilla', 'Harina', 'Mantequilla', 'Leche', 'Huevos' ] },
-    { id: 'pie-de-limon', category: 'reposteria', name: 'Mini Pie de Limón', price: '$2.500 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Mini+Pies', description: 'Porción individual del clásico pie de limón, con base de galleta, relleno cremoso y merengue italiano.', materials: [ 'Limones', 'Leche condensada', 'Galletas', 'Mantequilla', 'Claras de huevo' ] },
-    { id: 'donas-glaseadas', category: 'reposteria', name: 'Donas Glaseadas', price: '$1.800 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Donas', description: 'Donas horneadas, esponjosas y ligeras, cubiertas con un glaseado de azúcar o de chocolate.', materials: [ 'Harina', 'Leche', 'Levadura', 'Azúcar glas', 'Mantequilla' ] },
     { id: 'rollos-canela', category: 'reposteria', name: 'Rollos de Canela', price: '$2.300 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Rollos+Canela', description: 'Tiernos rollos de masa dulce con un generoso relleno de canela y azúcar, cubiertos con un glaseado de queso crema.', materials: [ 'Canela', 'Queso crema', 'Harina', 'Levadura', 'Mantequilla' ] },
 
     // --- PERSONALIZADOS ---
@@ -89,7 +86,6 @@ function setActiveNav() {
     });
 }
 
-// **FUNCIÓN PRINCIPAL CORREGIDA**
 function loadPageContent() {
     const page = window.location.pathname.split("/").pop();
     
@@ -111,7 +107,6 @@ function loadPageContent() {
         case 'Personalization.html':
             const productGrid = document.getElementById('product-grid');
             if (productGrid) {
-                // En la página de personalización, solo muestra los 3 ejemplos de personalizados.
                 loadCategorizedProducts(['personalizado'], '#product-grid', 3);
             }
             break;
@@ -218,7 +213,6 @@ function loadProductDetails() {
     }
 }
 
-// **FUNCIÓN DE FAQ CORREGIDA**
 function initFaqAccordion() {
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
@@ -227,7 +221,6 @@ function initFaqAccordion() {
             const answer = item.querySelector('.faq-answer');
             const isActive = item.classList.contains('active');
 
-            // Cerrar todos los demás items antes de abrir el nuevo
             faqItems.forEach(otherItem => {
                 if (otherItem !== item) {
                     otherItem.classList.remove('active');
@@ -235,7 +228,6 @@ function initFaqAccordion() {
                 }
             });
 
-            // Abrir o cerrar el item actual
             if (!isActive) {
                 item.classList.add('active');
                 answer.style.maxHeight = answer.scrollHeight + "px";
@@ -246,7 +238,6 @@ function initFaqAccordion() {
         });
     });
 }
-
 
 function sendOrderToWhatsApp() {
     const name = document.getElementById('name').value.trim();
@@ -269,9 +260,7 @@ function sendOrderToWhatsApp() {
     if (email) message += `📧 *Correo:* ${email}\n`;
     message += `🎂 *Tipo de Producto:* ${productType}\n`;
     if (deliveryDate) {
-        // Formatear la fecha para que sea más legible
         const date = new Date(deliveryDate);
-        // Ajustar por la zona horaria para evitar que se muestre el día anterior
         const userTimezoneOffset = date.getTimezoneOffset() * 60000;
         const adjustedDate = new Date(date.getTime() + userTimezoneOffset);
         const formattedDate = new Intl.DateTimeFormat('es-CL', { dateStyle: 'long' }).format(adjustedDate);
