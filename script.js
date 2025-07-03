@@ -30,134 +30,10 @@ const productsData = [
     { id: 'galletas-corporativas', category: 'personalizado', name: 'Galletas Corporativas', price: 'Consultar', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Galletas+Logo', description: 'Galletas de mantequilla personalizadas con el logo de tu empresa en papel de azúcar comestible. Perfectas para eventos, regalos a clientes o activaciones de marca.', materials: ['Mantequilla', 'Harina', 'Azúcar', 'Papel de azúcar comestible', 'Tinta comestible'] }
 ];
 
-// --- CÓDIGO DEL SITIO WEB ---
-document.addEventListener('DOMContentLoaded', () => {
-    handleMobileMenu();
-    loadFooter();
-    setActiveNav();
-    loadPageContent();
-});
-
-function handleMobileMenu() {
-    const hamburgerMenu = document.getElementById('hamburger-menu');
-    const navLinks = document.getElementById('nav-links');
-    if (hamburgerMenu && navLinks) {
-        hamburgerMenu.addEventListener('click', () => navLinks.classList.toggle('active'));
-    }
-}
-
-function loadFooter() {
-    const footer = document.getElementById('contacto');
-    if (footer) {
-        footer.innerHTML = `
-        <div class="footer-container">
-            <div class="footer-column">
-                <h4>Navegación</h4>
-                <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="tortas.html">Tortas</a></li>
-                    <li><a href="galletas.html">Galletas</a></li>
-                    <li><a href="reposteria.html">Repostería</a></li>
-                    <li><a href="Personalization.html">Personalizados</a></li>
-                    <li><a href="faq.html">Preguntas Frecuentes</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Síguenos</h4>
-                <div class="social-media">
-                    <a href="https://www.instagram.com/c_y_c_cookies_and_cakes/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/56961961556" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-            <div class="footer-column map-container">
-                <h4>Ubicación para Retiros</h4>
-                <p>La Florida, Santiago, Chile</p>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53225.9772345856!2d-70.61834383125!3d-33.513599999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d007a34965c7%3A0x889856d3b37996a0!2sLa%20Florida%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses-419!2scl!4v1718155099513!5m2!1ses-419!2scl" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-        <div class="copyright"><p>&copy; ${new Date().getFullYear()} C&C Cookies and Cakes. Todos los derechos reservados.</p></div>`;
-    }
-}
-
-function setActiveNav() {
-    const currentPage = window.location.pathname.split('/').pop();
-    document.querySelectorAll('.main-nav a').forEach(link => {
-        if (link.getAttribute('href') === currentPage) link.classList.add('active');
-    });
-}
-
-function loadPageContent() {
-    const page = window.location.pathname.split("/").pop();
-    
-    switch(page) {
-        case 'index.html':
-        case '':
-            initHeroSlider();
-            loadProductPreviews();
-            break;
-        case 'tortas.html':
-            loadCategorizedProducts(['torta'], '#product-grid');
-            break;
-        case 'galletas.html':
-            loadCategorizedProducts(['galleta'], '#product-grid');
-            break;
-        case 'reposteria.html':
-            loadCategorizedProducts(['reposteria'], '#product-grid');
-            break;
-        case 'Personalization.html':
-            const productGrid = document.getElementById('product-grid');
-            if (productGrid) {
-                loadCategorizedProducts(['personalizado'], '#product-grid', 3);
-            }
-            break;
-        case 'detalles.html':
-            loadProductDetails();
-            break;
-        case 'faq.html':
-            initFaqAccordion();
-            break;
-    }
-}
-
-function initHeroSlider() {
-    const sliderContainer = document.querySelector('.hero-slider');
-    if (!sliderContainer) return;
-    const images = ['images/slider-1.jpg', 'images/slider-2.jpg', 'images/slider-3.jpg'];
-    images.forEach((img, index) => {
-        const slide = document.createElement('div');
-        slide.className = 'slide';
-        slide.style.backgroundImage = `url(${img})`;
-        if (index === 0) slide.classList.add('active');
-        sliderContainer.appendChild(slide);
-    });
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.hero-slider .slide');
-    if (slides.length > 1) {
-        setInterval(() => {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }, 5000);
-    }
-}
-
-function loadProductPreviews() {
-    loadCategorizedProducts(['torta'], '#torta-product-grid', 3);
-    loadCategorizedProducts(['galleta'], '#galleta-product-grid', 3);
-    loadCategorizedProducts(['reposteria'], '#reposteria-product-grid', 3);
-}
-
-function loadCategorizedProducts(categories, gridSelector, limit) {
-    const productGrid = document.querySelector(gridSelector);
-    if (!productGrid) return;
-    let productsToDisplay = productsData.filter(p => categories.includes(p.category));
-    if (limit) {
-        productsToDisplay = productsToDisplay.slice(0, limit);
-    }
-    renderProducts(productsToDisplay, productGrid);
-}
+// --- FUNCIONES GLOBALES ---
 
 function renderProducts(products, gridElement) {
+    if (!gridElement) return;
     gridElement.innerHTML = '';
     if (products.length === 0) {
         gridElement.innerHTML = '<p>Próximamente más delicias en esta categoría.</p>';
@@ -182,6 +58,16 @@ function renderProducts(products, gridElement) {
         `;
         gridElement.appendChild(card);
     });
+}
+
+function loadCategorizedProducts(categories, gridSelector, limit) {
+    const productGrid = document.querySelector(gridSelector);
+    if (!productGrid) return;
+    let productsToDisplay = productsData.filter(p => categories.includes(p.category));
+    if (limit) {
+        productsToDisplay = productsToDisplay.slice(0, limit);
+    }
+    renderProducts(productsToDisplay, productGrid);
 }
 
 function loadProductDetails() {
@@ -214,28 +100,31 @@ function loadProductDetails() {
 }
 
 function initFaqAccordion() {
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        question.addEventListener('click', () => {
-            const answer = item.querySelector('.faq-answer');
-            const isActive = item.classList.contains('active');
+    const faqContainer = document.querySelector('.faq-container');
+    if (!faqContainer) return;
 
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.classList.remove('active');
-                    otherItem.querySelector('.faq-answer').style.maxHeight = null;
-                }
-            });
+    faqContainer.addEventListener('click', (e) => {
+        const questionButton = e.target.closest('.faq-question');
+        if (!questionButton) return;
 
-            if (!isActive) {
-                item.classList.add('active');
-                answer.style.maxHeight = answer.scrollHeight + "px";
-            } else {
+        const currentItem = questionButton.parentElement;
+        const answer = currentItem.querySelector('.faq-answer');
+        const isActive = currentItem.classList.contains('active');
+
+        document.querySelectorAll('.faq-item').forEach(item => {
+            if (item !== currentItem) {
                 item.classList.remove('active');
-                answer.style.maxHeight = null;
+                item.querySelector('.faq-answer').style.maxHeight = null;
             }
         });
+
+        if (!isActive) {
+            currentItem.classList.add('active');
+            answer.style.maxHeight = answer.scrollHeight + "px";
+        } else {
+            currentItem.classList.remove('active');
+            answer.style.maxHeight = null;
+        }
     });
 }
 
@@ -273,3 +162,77 @@ function sendOrderToWhatsApp() {
     const whatsappURL = `https://wa.me/${businessWhatsAppNumber}?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank').focus();
 }
+
+// --- LÓGICA DE INICIALIZACIÓN DE PÁGINA ---
+function initializePage() {
+    const pageName = window.location.pathname.split('/').pop();
+
+    // Funciones comunes a todas las páginas
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+    const navLinks = document.getElementById('nav-links');
+    if (hamburgerMenu && navLinks) {
+        hamburgerMenu.addEventListener('click', () => navLinks.classList.toggle('active'));
+    }
+
+    const footer = document.getElementById('contacto');
+    if (footer) {
+        footer.innerHTML = `
+        <div class="footer-container">
+            <div class="footer-column"><h4>Navegación</h4><ul><li><a href="index.html">Inicio</a></li><li><a href="tortas.html">Tortas</a></li><li><a href="galletas.html">Galletas</a></li><li><a href="reposteria.html">Repostería</a></li><li><a href="Personalization.html">Personalizados</a></li><li><a href="faq.html">Preguntas Frecuentes</a></li></ul></div>
+            <div class="footer-column"><h4>Síguenos</h4><div class="social-media"><a href="https://www.instagram.com/c_y_c_cookies_and_cakes/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://wa.me/56961961556" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div></div>
+            <div class="footer-column map-container"><h4>Ubicación para Retiros</h4><p>La Florida, Santiago, Chile</p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53225.9772345856!2d-70.61834383125!3d-33.513599999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d007a34965c7%3A0x889856d3b37996a0!2sLa%20Florida%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses-419!2scl!4v1718155099513!5m2!1ses-419!2scl" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+        </div>
+        <div class="copyright"><p>&copy; ${new Date().getFullYear()} C&C Cookies and Cakes. Todos los derechos reservados.</p></div>`;
+    }
+    
+    document.querySelectorAll('.main-nav a').forEach(link => {
+        if (link.getAttribute('href') === pageName) {
+            link.classList.add('active');
+        }
+    });
+
+    // Funciones específicas de cada página
+    if (pageName === 'index.html' || pageName === '') {
+        const sliderContainer = document.querySelector('.hero-slider');
+        if (sliderContainer) {
+            const images = ['images/slider-1.jpg', 'images/slider-2.jpg', 'images/slider-3.jpg'];
+            images.forEach((img, index) => {
+                const slide = document.createElement('div');
+                slide.className = 'slide';
+                slide.style.backgroundImage = `url(${img})`;
+                if (index === 0) slide.classList.add('active');
+                sliderContainer.appendChild(slide);
+            });
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.hero-slider .slide');
+            if (slides.length > 1) {
+                setInterval(() => {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }, 5000);
+            }
+        }
+        loadCategorizedProducts(['torta'], '#torta-product-grid', 3);
+        loadCategorizedProducts(['galleta'], '#galleta-product-grid', 3);
+        loadCategorizedProducts(['reposteria'], '#reposteria-product-grid', 3);
+    } else if (pageName === 'tortas.html') {
+        loadCategorizedProducts(['torta'], '#product-grid');
+    } else if (pageName === 'galletas.html') {
+        loadCategorizedProducts(['galleta'], '#product-grid');
+    } else if (pageName === 'reposteria.html') {
+        loadCategorizedProducts(['reposteria'], '#product-grid');
+    } else if (pageName === 'Personalization.html') {
+        const productGrid = document.getElementById('product-grid');
+        if (productGrid) {
+            loadCategorizedProducts(['personalizado'], '#product-grid', 3);
+        }
+    } else if (pageName === 'detalles.html') {
+        loadProductDetails();
+    } else if (pageName === 'faq.html') {
+        initFaqAccordion();
+    }
+}
+
+// Ejecutar la inicialización cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', initializePage);
