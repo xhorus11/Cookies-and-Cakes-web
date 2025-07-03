@@ -89,6 +89,7 @@ function setActiveNav() {
     });
 }
 
+// **FUNCIÓN PRINCIPAL CORREGIDA**
 function loadPageContent() {
     const page = window.location.pathname.split("/").pop();
     
@@ -110,6 +111,7 @@ function loadPageContent() {
         case 'Personalization.html':
             const productGrid = document.getElementById('product-grid');
             if (productGrid) {
+                // En la página de personalización, solo muestra los 3 ejemplos de personalizados.
                 loadCategorizedProducts(['personalizado'], '#product-grid', 3);
             }
             break;
@@ -216,24 +218,35 @@ function loadProductDetails() {
     }
 }
 
+// **FUNCIÓN DE FAQ CORREGIDA**
 function initFaqAccordion() {
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
         question.addEventListener('click', () => {
             const answer = item.querySelector('.faq-answer');
-            const isActive = item.classList.toggle('active');
+            const isActive = item.classList.contains('active');
 
-            if (isActive) {
-                // Set max-height to the scrollHeight to trigger the transition
+            // Cerrar todos los demás items antes de abrir el nuevo
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                }
+            });
+
+            // Abrir o cerrar el item actual
+            if (!isActive) {
+                item.classList.add('active');
                 answer.style.maxHeight = answer.scrollHeight + "px";
             } else {
-                // Set max-height to null (or "0px") to collapse it
+                item.classList.remove('active');
                 answer.style.maxHeight = null;
             }
         });
     });
 }
+
 
 function sendOrderToWhatsApp() {
     const name = document.getElementById('name').value.trim();
@@ -258,7 +271,10 @@ function sendOrderToWhatsApp() {
     if (deliveryDate) {
         // Formatear la fecha para que sea más legible
         const date = new Date(deliveryDate);
-        const formattedDate = new Intl.DateTimeFormat('es-CL', { dateStyle: 'long' }).format(date);
+        // Ajustar por la zona horaria para evitar que se muestre el día anterior
+        const userTimezoneOffset = date.getTimezoneOffset() * 60000;
+        const adjustedDate = new Date(date.getTime() + userTimezoneOffset);
+        const formattedDate = new Intl.DateTimeFormat('es-CL', { dateStyle: 'long' }).format(adjustedDate);
         message += `🗓️ *Fecha de Retiro Deseada:* ${formattedDate}\n`;
     }
     message += `\n✨ *Detalles de la cotización:*\n${details}\n\n`;
