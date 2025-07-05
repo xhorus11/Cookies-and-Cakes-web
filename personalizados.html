@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos Personalizados - C&C Cookies and Cakes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Logo de C&C Cookies and Cakes" class="logo-img">
+                <span class="logo-text">C&C</span>
+                <span class="logo-text-secondary">Cookies and Cakes</span>
+            </a>
+            <nav class="main-nav">
+                <button class="hamburger-menu" id="hamburger-menu" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+                <ul id="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="tortas.html">Tortas</a></li>
+                    <li><a href="galletas.html">Galletas</a></li>
+                    <li><a href="reposteria.html">Repostería</a></li>
+                    <li><a href="personalizados.html">Personalizados</a></li>
+                    <li><a href="faq.html">Preguntas Frecuentes</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="custom-form-section" style="border-top: none; margin-top: 0; padding-top: 0;">
+            <h1 class="section-title">Personaliza tu Pedido</h1>
+            <p class="section-subtitle">Cuéntanos tu idea y la haremos realidad. Completa el formulario y te contactaremos a la brevedad.</p>
+            <form id="customOrderForm" class="custom-form">
+                <div class="form-group">
+                    <label for="name">Tu Nombre:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="whatsappPhone">Tu Número de WhatsApp (con código de país):</label>
+                    <input type="tel" id="whatsappPhone" name="whatsappPhone" required placeholder="Ej: 56912345678">
+                </div>
+                <div class="form-group">
+                    <label for="email">Tu Correo Electrónico (opcional):</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="productType">Tipo de Producto:</label>
+                    <select id="productType" name="productType">
+                        <option value="Torta">Torta</option>
+                        <option value="Galletas">Galletas</option>
+                        <option value="Otro">Otro tipo de repostería</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="customDetails">Cotiza tu idea:</label>
+                    <textarea id="customDetails" name="customDetails" rows="6" required placeholder="Ej: Torta para 20 personas, sabor manjar-nuez, con temática de unicornio en tonos pastel y el nombre 'Isidora'."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="deliveryDate">Fecha de Retiro Deseada (opcional):</label>
+                    <input type="date" id="deliveryDate" name="deliveryDate">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="sendOrderToWhatsApp()">Enviar Pedido por WhatsApp</button>
+            </form>
+        </div>
+    </main>
+
+    <footer id="contacto" class="main-footer-section"></footer>
+    <a href="https://wa.me/56961961556?text=Hola%20C&C%20Cookies%20and%20Cakes!%20Tengo%20una%20consulta." class="whatsapp-float-enhanced" target="_blank">
+        <div class="whatsapp-text-container">
+            <div class="whatsapp-text">¿Dudas o consultas?</div>
+            <div class="whatsapp-arrow"></div>
+        </div>
+        <div class="whatsapp-icon-container"><i class="fab fa-whatsapp"></i></div>
+    </a>
+    <script src="script.js"></script>
+</body>
+</html>
