@@ -1,4 +1,4 @@
-# prototipo
+# Prototipo
 ¡Hola! Esta guía está diseñada para que puedas actualizar fácilmente los productos de tu página web (tortas, galletas, etc.) sin necesidad de tocar el código complejo.
 
 Toda la magia de tu catálogo de productos se encuentra en un solo lugar: el archivo script.js.
