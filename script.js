@@ -80,8 +80,7 @@ function loadProductDetails() {
     if (product) {
         document.title = `${product.name} - C&C Cookies and Cakes`;
         const materialsList = product.materials.map(material => `<li><i class="fas fa-cookie-bite"></i> ${material}</li>`).join('');
-        // ===== INICIO DE LA MODIFICACIÓN =====
-        
+
         // 1. Creamos una variable para la nota, inicialmente vacía.
         let priceNote = '';
 
@@ -94,13 +93,17 @@ function loadProductDetails() {
                 </div>
             `;
         }
-        // ===== FIN DE LA MODIFICACIÓN =====
+
+        // Fíjate cómo se incluye ${priceNote} debajo del precio
         container.innerHTML = `
             <div class="product-detail-layout">
-                <div class="product-detail-image"><img src="${product.image_card.replace('400x400', '600x600')}" alt="${product.name}"></div>
+                <div class="product-detail-image"><img src="${product.image_detail || product.image_card}" alt="${product.name}"></div>
                 <div class="product-detail-info">
                     <h1 class="product-detail-title">${product.name}</h1>
                     <p class="product-detail-price">${product.price}</p>
+                    
+                    ${priceNote}
+
                     <p class="product-detail-description">${product.description}</p>
                     <div class="product-availability-note">
                         <strong>Nota:</strong> Todos los pedidos están sujetos a disponibilidad y se agendan con 10-20 días de anticipación.
@@ -110,6 +113,9 @@ function loadProductDetails() {
                 </div>
             </div>`;
     } else {
+        container.innerHTML = '<p>Producto no encontrado. Por favor, vuelve al <a href="index.html">inicio</a>.</p>';
+    }
+}
         container.innerHTML = '<p>Producto no encontrado. Por favor, vuelve al <a href="index.html">inicio</a>.</p>';
     }
 }
