@@ -206,7 +206,7 @@ function initializePage() {
     if (pageName === 'index.html' || pageName === '') {
         const sliderContainer = document.querySelector('.hero-slider');
         if (sliderContainer) {
-            const images = [images/torta-encanto.webp', 'images/galletas-animalitos.webp', 'images/galletas-navidad.jpg];
+            const images = ['images/torta-encanto.webp', 'images/galletas-animalitos.webp', 'images/galletas-navidad.jpg'];
             images.forEach((img, index) => {
                 const slide = document.createElement('div');
                 slide.className = 'slide';
