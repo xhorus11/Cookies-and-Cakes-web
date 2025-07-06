@@ -113,9 +113,7 @@ function loadProductDetails() {
                 </div>
             </div>`;
     } else {
-        container.innerHTML = '<p>Producto no encontrado. Por favor, vuelve al <a href="index.html">inicio</a>.</p>';
-    }
-}
+        
         container.innerHTML = '<p>Producto no encontrado. Por favor, vuelve al <a href="index.html">inicio</a>.</p>';
     }
 }
