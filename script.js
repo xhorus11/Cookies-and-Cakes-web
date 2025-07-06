@@ -80,13 +80,9 @@ function loadProductDetails() {
     if (product) {
         document.title = `${product.name} - C&C Cookies and Cakes`;
         const materialsList = product.materials.map(material => `<li><i class="fas fa-cookie-bite"></i> ${material}</li>`).join('');
-
-        // 1. Creamos una variable para la nota, inicialmente vacía.
         let priceNote = '';
 
-        // 2. Verificamos si la categoría del producto es 'galleta'.
         if (product.category === 'galleta') {
-            // 3. Si es una galleta, le asignamos el HTML de la nota a la variable.
             priceNote = `
                 <div style="background-color: #fdeff2; border-left: 4px solid #E18AAA; padding: 12px 18px; margin: 0 0 1.5rem 0; font-size: 0.95rem; color: #555;">
                     <strong>Nota sobre el precio:</strong> El valor puede variar según el nivel de detalle y personalización del diseño. ¡No dudes en consultar!
@@ -94,30 +90,26 @@ function loadProductDetails() {
             `;
         }
 
-        // Fíjate cómo se incluye ${priceNote} debajo del precio
         container.innerHTML = `
             <div class="product-detail-layout">
                 <div class="product-detail-image"><img src="${product.image_detail || product.image_card}" alt="${product.name}"></div>
                 <div class="product-detail-info">
                     <h1 class="product-detail-title">${product.name}</h1>
                     <p class="product-detail-price">${product.price}</p>
-                    
                     ${priceNote}
-
                     <p class="product-detail-description">${product.description}</p>
-                    <div class="product-availability-note">
-                        <strong>Nota:</strong> Todos los pedidos están sujetos a disponibilidad y se agendan con 10-20 días de anticipación.
-                    </div>
                     <div class="product-detail-extra"><h3>Ingredientes Principales</h3><ul>${materialsList}</ul></div>
+
+                    <div class="product-availability-note" style="margin-top: 1.5rem; margin-bottom: 1rem; text-align: center; font-size: 0.9rem; color: #6c757d;">
+                        <i class="fas fa-info-circle"></i> Pedidos se agendan con 10-20 días de anticipación.
+                    </div>
                     <a href="personalizados.html" class="btn btn-primary">Encargar o Personalizar</a>
-                </div>
+                    </div>
             </div>`;
     } else {
-        
         container.innerHTML = '<p>Producto no encontrado. Por favor, vuelve al <a href="index.html">inicio</a>.</p>';
     }
 }
-
 function initFaqAccordion() {
     const faqContainer = document.querySelector('.faq-container');
     if (!faqContainer) return;
