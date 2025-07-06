@@ -50,15 +50,73 @@ a:hover { color: var(--text-dark); }
 .hamburger-menu { display: none; background: none; border: none; font-size: 1.5rem; color: var(--text-dark); cursor: pointer; }
 
 /* --- Hero Section --- */
-.hero-section { height: 60vh; min-height: 400px; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--text-light); overflow: hidden; }
-.hero-slider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
-.hero-slider .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out; transform: scale(1.05); animation: kenburns 20s infinite; }
-.hero-slider .slide.active { opacity: 1; }
-@keyframes kenburns { 0% { transform: scale(1.05) translate(0, 0); } 50% { transform: scale(1.2) translate(5px, -5px); } 100% { transform: scale(1.05) translate(0, 0); } }
-.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); z-index: 2; }
-.hero-content { position: relative; z-index: 3; padding: 2rem; }
-.hero-title { font-family: var(--font-headings); font-size: 3.5rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); margin-bottom: 0.5rem; }
-.hero-subtitle { font-size: 1.3rem; margin-bottom: 2rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
+.hero-section {
+    position: relative;
+    height: 90vh; /* Altura del carrusel, ocupa el 90% de la pantalla */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-slider .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out; /* Transición suave */
+    transform: scale(1.05); /* Ligero zoom inicial */
+}
+
+.hero-slider .slide.active {
+    opacity: 1;
+    transform: scale(1); /* Zoom out al activarse */
+    transition: opacity 1.5s ease-in-out, transform 6s linear; /* La transición del zoom dura más */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Capa oscura para que el texto resalte */
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    padding: 2rem;
+}
+
+.hero-title {
+    font-family: var(--font-headings); /* Usando la variable que ya tienes */
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
 
 /* --- Product Sections --- */
 .product-preview-section { padding: 3rem 0; border-bottom: 1px solid var(--pink-pastel); }
