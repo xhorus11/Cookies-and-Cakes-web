@@ -80,6 +80,21 @@ function loadProductDetails() {
     if (product) {
         document.title = `${product.name} - C&C Cookies and Cakes`;
         const materialsList = product.materials.map(material => `<li><i class="fas fa-cookie-bite"></i> ${material}</li>`).join('');
+        // ===== INICIO DE LA MODIFICACIÓN =====
+        
+        // 1. Creamos una variable para la nota, inicialmente vacía.
+        let priceNote = '';
+
+        // 2. Verificamos si la categoría del producto es 'galleta'.
+        if (product.category === 'galleta') {
+            // 3. Si es una galleta, le asignamos el HTML de la nota a la variable.
+            priceNote = `
+                <div style="background-color: #fdeff2; border-left: 4px solid #E18AAA; padding: 12px 18px; margin: 0 0 1.5rem 0; font-size: 0.95rem; color: #555;">
+                    <strong>Nota sobre el precio:</strong> El valor puede variar según el nivel de detalle y personalización del diseño. ¡No dudes en consultar!
+                </div>
+            `;
+        }
+        // ===== FIN DE LA MODIFICACIÓN =====
         container.innerHTML = `
             <div class="product-detail-layout">
                 <div class="product-detail-image"><img src="${product.image_card.replace('400x400', '600x600')}" alt="${product.name}"></div>
