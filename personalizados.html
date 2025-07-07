@@ -57,6 +57,11 @@
                         <option value="Otro">Otro tipo de repostería</option>
                     </select>
                 </div>
+                <!-- Campo de selección de producto dinámico -->
+                <div class="form-group" id="productSelectionContainer" style="display: none;">
+                    <label for="productSelection">Producto:</label>
+                    <select id="productSelection" name="productSelection"></select>
+                </div>
                 <div class="form-group">
                     <label for="customDetails">Cotiza tu idea:</label>
                     <textarea id="customDetails" name="customDetails" rows="6" required placeholder="Ej: Torta para 20 personas, sabor manjar-nuez, con temática de unicornio en tonos pastel y el nombre 'Isidora'."></textarea>
@@ -81,3 +86,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
