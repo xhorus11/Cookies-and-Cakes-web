@@ -144,11 +144,6 @@ function sendOrderToWhatsApp() {
     const phone = document.getElementById('whatsappPhone').value.trim();
     const email = document.getElementById('email').value.trim();
     const productType = document.getElementById('productType').value;
-    
-    // --- MODIFICADO: Obtener el producto seleccionado ---
-    const productSelectionSelect = document.getElementById('productSelection');
-    const selectedProduct = productSelectionSelect.value;
-    
     const details = document.getElementById('customDetails').value.trim();
     const deliveryDate = document.getElementById('deliveryDate').value;
 
@@ -164,12 +159,6 @@ function sendOrderToWhatsApp() {
     message += `📱 *WhatsApp:* ${phone}\n`;
     if (email) message += `📧 *Correo:* ${email}\n`;
     message += `🎂 *Tipo de Producto:* ${productType}\n`;
-
-    // --- NUEVO: Añadir el producto seleccionado al mensaje si existe ---
-    if (selectedProduct) {
-        message += `🍰 *Producto del catálogo:* ${selectedProduct}\n`;
-    }
-
     if (deliveryDate) {
         const date = new Date(deliveryDate);
         const userTimezoneOffset = date.getTimezoneOffset() * 60000;
@@ -249,52 +238,6 @@ function initializePage() {
         if (productGrid) {
             loadCategorizedProducts(['personalizado'], '#product-grid', 3);
         }
-        
-        // --- NUEVA LÓGICA PARA EL FORMULARIO DINÁMICO ---
-        const productTypeSelect = document.getElementById('productType');
-        const productSelectionContainer = document.getElementById('productSelectionContainer');
-        const productSelectionSelect = document.getElementById('productSelection');
-
-        const categoryMap = {
-            'Torta': 'torta',
-            'Galletas': 'galleta',
-            'Otro': 'reposteria'
-        };
-
-        function updateProductOptions() {
-            const selectedType = productTypeSelect.value;
-            const category = categoryMap[selectedType];
-            
-            if (!category) {
-                productSelectionContainer.style.display = 'none';
-                return;
-            }
-
-            const products = productsData.filter(p => p.category === category);
-
-            if (products.length > 0) {
-                productSelectionSelect.innerHTML = ''; // Limpiar opciones existentes
-                
-                const defaultOption = document.createElement('option');
-                defaultOption.value = '';
-                defaultOption.textContent = 'Selecciona un producto (opcional)';
-                productSelectionSelect.appendChild(defaultOption);
-
-                products.forEach(product => {
-                    const option = document.createElement('option');
-                    option.value = product.name;
-                    option.textContent = product.name;
-                    productSelectionSelect.appendChild(option);
-                });
-                productSelectionContainer.style.display = 'block';
-            } else {
-                productSelectionContainer.style.display = 'none';
-            }
-        }
-
-        productTypeSelect.addEventListener('change', updateProductOptions);
-        updateProductOptions(); // Llamada inicial para poblar según la opción por defecto
-
     } else if (pageName === 'detalles.html') {
         loadProductDetails();
     } else if (pageName === 'faq.html') {
