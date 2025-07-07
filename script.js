@@ -14,7 +14,7 @@ const productsData = [
     { id: 'galletas-surtidas', category: 'galleta', name: 'Galletas surtidas', price: 'Desde $2.000 los 100gr', image_card: 'https://i.postimg.cc/fynNMtZQ/galletas-surtiditas.jpg', description: 'Deléitate con esta exquisita selección de galletas artesanales, perfectas para acompañar un café o endulzar cualquier momento del día. Cada pieza está elaborada con dedicación y variedad de sabores y texturas', materials: [ 'Chips de chocolate', 'Harina', 'Mantequilla', 'Azúcar rubia', 'Huevo', 'Bicarbonato' ] },
     { id: 'galletas-vainilla', category: 'galleta', name: 'Galleta de Vainilla', price: '', image_card: 'https://i.postimg.cc/pd4cJK6N/galleta-de-vainilla.jpg', description: 'Exquisita galleta de vainilla decorada con royalcing', materials: [ 'Harina', 'Mantequilla', 'Azúcar', 'Huevo', 'Vainilla', 'Azúcar glas' ] },
     { id: 'galletas-craqueladas', category: 'galleta', name: 'Galletas craqueladas', price: '', image_card: 'https://i.postimg.cc/4xqNVSsX/Galletas-craqueladas-red-velvet.jpg', description: 'Deliciosas galletas craqueladas, disponibles en Red Velvet, Limón y más.', materials: [ 'Chocolate amargo', 'Cacao', 'Azúcar glas', 'Huevo', 'Harina' ] },
-    { id: 'galletas-delicias', category: 'galleta', name: 'Galletas Delicias', price: '$1.600 c/u', image_card: 'https://i.postimg.cc/pXh4CYNW/galletas-delicias-1.jpg', description: 'Un clásico que nunca falla: nuestras galletas Delicias, su forma de flor y su centro brillante no solo las hacen irresistibles al paladar, sino también encantadoras a la vista. Crujientes por fuera, suaves por dentro… el equilibrio perfecto entre dulzura y textura.', materials: [ 'Mermelada', 'Harina', 'Canela', 'Mantequilla', 'Azúcar flor' ] },
+    { id: 'galletas-avena-pasas', category: 'galleta', name: 'Galletas Avena y Pasas', price: '$1.600 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Avena+y+Pasas', description: 'Una galleta contundente y sabrosa, con la textura de la avena y el dulzor de las pasas. Ligeramente especiada con canela.', materials: [ 'Avena', 'Pasas', 'Harina', 'Canela', 'Mantequilla', 'Azúcar rubia' ] },
     { id: 'galletas-limon', category: 'galleta', name: 'Galletas de Limón', price: '$1.600 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Galletas+Limon', description: 'Galletas suaves y mantecosas con un intenso sabor a limón y un glaseado brillante.', materials: [ 'Limón', 'Harina', 'Mantequilla', 'Azúcar', 'Huevo' ] },
     { id: 'galletas-jengibre', category: 'galleta', name: 'Galletas de Jengibre', price: '$1.700 c/u', image_card: 'https://i.postimg.cc/tg6R5N4W/galletas-de-jengibre.jpg', description: 'Clásicas galletas especiadas con jengibre, canela y clavo de olor. Perfectas para la temporada navideña o para acompañar un té.', materials: [ 'Jengibre', 'Canela', 'Melaza', 'Harina', 'Mantequilla' ] },
 
@@ -144,6 +144,11 @@ function sendOrderToWhatsApp() {
     const phone = document.getElementById('whatsappPhone').value.trim();
     const email = document.getElementById('email').value.trim();
     const productType = document.getElementById('productType').value;
+    
+    // --- MODIFICADO: Obtener el producto seleccionado ---
+    const productSelectionSelect = document.getElementById('productSelection');
+    const selectedProduct = productSelectionSelect.value;
+    
     const details = document.getElementById('customDetails').value.trim();
     const deliveryDate = document.getElementById('deliveryDate').value;
 
@@ -159,6 +164,12 @@ function sendOrderToWhatsApp() {
     message += `📱 *WhatsApp:* ${phone}\n`;
     if (email) message += `📧 *Correo:* ${email}\n`;
     message += `🎂 *Tipo de Producto:* ${productType}\n`;
+
+    // --- NUEVO: Añadir el producto seleccionado al mensaje si existe ---
+    if (selectedProduct) {
+        message += `🍰 *Producto del catálogo:* ${selectedProduct}\n`;
+    }
+
     if (deliveryDate) {
         const date = new Date(deliveryDate);
         const userTimezoneOffset = date.getTimezoneOffset() * 60000;
@@ -238,6 +249,52 @@ function initializePage() {
         if (productGrid) {
             loadCategorizedProducts(['personalizado'], '#product-grid', 3);
         }
+        
+        // --- NUEVA LÓGICA PARA EL FORMULARIO DINÁMICO ---
+        const productTypeSelect = document.getElementById('productType');
+        const productSelectionContainer = document.getElementById('productSelectionContainer');
+        const productSelectionSelect = document.getElementById('productSelection');
+
+        const categoryMap = {
+            'Torta': 'torta',
+            'Galletas': 'galleta',
+            'Otro': 'reposteria'
+        };
+
+        function updateProductOptions() {
+            const selectedType = productTypeSelect.value;
+            const category = categoryMap[selectedType];
+            
+            if (!category) {
+                productSelectionContainer.style.display = 'none';
+                return;
+            }
+
+            const products = productsData.filter(p => p.category === category);
+
+            if (products.length > 0) {
+                productSelectionSelect.innerHTML = ''; // Limpiar opciones existentes
+                
+                const defaultOption = document.createElement('option');
+                defaultOption.value = '';
+                defaultOption.textContent = 'Selecciona un producto (opcional)';
+                productSelectionSelect.appendChild(defaultOption);
+
+                products.forEach(product => {
+                    const option = document.createElement('option');
+                    option.value = product.name;
+                    option.textContent = product.name;
+                    productSelectionSelect.appendChild(option);
+                });
+                productSelectionContainer.style.display = 'block';
+            } else {
+                productSelectionContainer.style.display = 'none';
+            }
+        }
+
+        productTypeSelect.addEventListener('change', updateProductOptions);
+        updateProductOptions(); // Llamada inicial para poblar según la opción por defecto
+
     } else if (pageName === 'detalles.html') {
         loadProductDetails();
     } else if (pageName === 'faq.html') {
