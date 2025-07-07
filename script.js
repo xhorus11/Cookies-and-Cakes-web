@@ -11,18 +11,18 @@ const productsData = [
     { id: 'torta-selva-negra', category: 'torta', name: 'Torta Colonial', price: '$40.000 - $48.000', image_card: 'https://i.imgur.com/DbCXzpi.jpeg', description: '୨୧ Hojarascas rellenas de manjar con nueces y crema pastelera.<br><br>୨୧ Disponible para 20 y 25 personas.', materials: ['Chocolate', 'Cerezas', 'Crema Chantilly', 'Harina', 'Huevos', 'Licor de Cereza'] },
 
     // --- GALLETAS (6 ejemplos) ---
-    { id: 'galletas-surtidas', category: 'galleta', name: 'Galletas surtidas', image_card: 'https://i.postimg.cc/J4PMwhyt/galletas-surtidas.jpg', description: 'Deléitate con esta exquisita selección de galletas artesanales, perfectas para acompañar un café o endulzar cualquier momento del día. Cada pieza está elaborada con dedicación y variedad de sabores y texturas', materials: [  'Harina', 'Mantequilla', 'Azúcar rubia', 'Huevo', 'Bicarbonato' ] },
-    { id: 'galletas-vainilla', category: 'galleta', name: 'Galleta de Vainilla', image_card: 'https://i.postimg.cc/pd4cJK6N/galleta-de-vainilla.jpg', description: 'Exquisita galleta de vainilla decorada con royalcing', materials: [ 'Harina', 'Mantequilla', 'Azúcar', 'Huevo', 'Vainilla', 'Azúcar glas' ] },
-    { id: 'galletas-craqueladas', category: 'galleta', name: 'Galletas craqueladas', image_card: 'https://i.postimg.cc/4xqNVSsX/Galletas-craqueladas-red-velvet.jpg', description: 'Deliciosas galletas craqueladas, disponibles en Red Velvet, Limón y más.', materials: [ 'Chocolate amargo', 'Cacao', 'Azúcar glas', 'Huevo', 'Harina' ] },
-    { id: 'galletas-delicias', category: 'galleta', name: 'Galletas Delicias', image_card: 'https://i.postimg.cc/B6LsF80t/galletas-delicias-2.jpg', description: 'Un clásico que nunca falla: nuestras galletas Delicias, su forma de flor y su centro brillante no solo las hacen irresistibles al paladar, sino también encantadoras a la vista. Crujientes por fuera, suaves por dentro… el equilibrio perfecto entre dulzura y textura.', materials: [ 'Mermelada', 'Harina', 'Mantequilla', 'Azúcar flor' ] },
-    { id: 'galletas-personalizadas', category: 'galleta', name: 'Galletas personalizadas', image_card: 'https://i.postimg.cc/yYMPCxnB/galletas-personalizadas.jpg', description: 'Deliciosas galletas de mantequilla decoradas a mano con glasé real (royal icing), inspiradas en el mágico mundo de Hogwarts. Cada diseño está hecho con detalle y mucho amor: casas, varitas, bufandas y más… ¡Cotiza tu propio diseño único! ⚡🍪.', materials: [ 'Merengue', 'Harina', 'Mantequilla', 'Azúcar', 'Huevo' ] },
-    { id: 'galletas-jengibre', category: 'galleta', name: 'Galletas de Jengibre', image_card: 'https://i.postimg.cc/tg6R5N4W/galletas-de-jengibre.jpg', description: 'Clásicas galletas especiadas con jengibre, canela y clavo de olor. Perfectas para la temporada navideña o para acompañar un té.', materials: [ 'Jengibre', 'Canela', 'Melaza', 'Harina', 'Mantequilla' ] },
+    { id: 'galletas-surtidas', category: 'galleta', name: 'Galletas surtidas', price: 'Desde $2.000 los 100gr', image_card: 'https://i.postimg.cc/fynNMtZQ/galletas-surtiditas.jpg', description: 'Deléitate con esta exquisita selección de galletas artesanales, perfectas para acompañar un café o endulzar cualquier momento del día. Cada pieza está elaborada con dedicación y variedad de sabores y texturas', materials: [ 'Chips de chocolate', 'Harina', 'Mantequilla', 'Azúcar rubia', 'Huevo', 'Bicarbonato' ] },
+    { id: 'galletas-vainilla', category: 'galleta', name: 'Galleta de Vainilla', price: '', image_card: 'https://i.postimg.cc/pd4cJK6N/galleta-de-vainilla.jpg', description: 'Exquisita galleta de vainilla decorada con royalcing', materials: [ 'Harina', 'Mantequilla', 'Azúcar', 'Huevo', 'Vainilla', 'Azúcar glas' ] },
+    { id: 'galletas-craqueladas', category: 'galleta', name: 'Galletas craqueladas', price: '', image_card: 'https://i.postimg.cc/4xqNVSsX/Galletas-craqueladas-red-velvet.jpg', description: 'Deliciosas galletas craqueladas, disponibles en Red Velvet, Limón y más.', materials: [ 'Chocolate amargo', 'Cacao', 'Azúcar glas', 'Huevo', 'Harina' ] },
+    { id: 'galletas-avena-pasas', category: 'galleta', name: 'Galletas Avena y Pasas', price: '$1.600 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Avena+y+Pasas', description: 'Una galleta contundente y sabrosa, con la textura de la avena y el dulzor de las pasas. Ligeramente especiada con canela.', materials: [ 'Avena', 'Pasas', 'Harina', 'Canela', 'Mantequilla', 'Azúcar rubia' ] },
+    { id: 'galletas-limon', category: 'galleta', name: 'Galletas de Limón', price: '$1.600 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Galletas+Limon', description: 'Galletas suaves y mantecosas con un intenso sabor a limón y un glaseado brillante.', materials: [ 'Limón', 'Harina', 'Mantequilla', 'Azúcar', 'Huevo' ] },
+    { id: 'galletas-jengibre', category: 'galleta', name: 'Galletas de Jengibre', price: '$1.700 c/u', image_card: 'https://i.postimg.cc/tg6R5N4W/galletas-de-jengibre.jpg', description: 'Clásicas galletas especiadas con jengibre, canela y clavo de olor. Perfectas para la temporada navideña o para acompañar un té.', materials: [ 'Jengibre', 'Canela', 'Melaza', 'Harina', 'Mantequilla' ] },
 
     // --- REPOSTERÍA (4 ejemplos) ---
-    { id: 'alfajores-maicena', category: 'reposteria', name: 'Alfajores de Maicena', price: '', image_card: 'https://i.postimg.cc/J75nvxcQ/alfajor-de-maicena.jpg', description: 'Suaves y delicados alfajores que se deshacen en la boca, rellenos de manjar y con los bordes pasados por coco rallado.', materials: [ 'Maicena', 'Manjar', 'Coco rallado', 'Harina', 'Mantequilla', 'Yemas de huevo' ] },
-    { id: 'pie-de-limon', category: 'reposteria', name: 'Pie de limón', price: ', image_card: 'https://i.postimg.cc/W1KmsKXr/pie-de-limon-2.jpg', description: '🍋✨ Pie de Limón casero, con base crujiente, relleno cremoso y el toque justo de acidez. ¡Una delicia fresca y perfecta para cualquier momento!', materials: ['Leche condensada', 'Mantequilla', 'Azúcar', 'Huevos', 'Harina', 'Jugo de limón'] },
-    { id: 'macarons-surtidos', category: 'reposteria', name: 'Macarons Surtidos', price: '', image_card: 'https://i.postimg.cc/qq1CTxng/macarrons-amarillos.jpg', description: 'Finos merengues de almendra con un relleno cremoso. Disponibles en una variedad de sabores como chocolate, frambuesa, limón, maracuyá y más.', materials: [ 'Harina de almendras', 'Claras de huevo', 'Azúcar', 'Rellenos variados' ] },
-    { id: 'rollos-canela', category: 'reposteria', name: 'Rollos de Canela', price: '', image_card: 'https://i.postimg.cc/3JJPFXM0/rollo-de-canela.jpg', description: 'Tiernos rollos de masa dulce con un generoso relleno de canela y azúcar, cubiertos con un glaseado de queso crema.', materials: [ 'Canela', 'Queso crema', 'Harina', 'Levadura', 'Mantequilla' ] },
+    { id: 'alfajores-maicena', category: 'reposteria', name: 'Alfajores de Maicena', price: '$1.600 c/u', image_card: 'https://i.postimg.cc/J75nvxcQ/alfajor-de-maicena.jpg', description: 'Suaves y delicados alfajores que se deshacen en la boca, rellenos de manjar y con los bordes pasados por coco rallado.', materials: [ 'Maicena', 'Manjar', 'Coco rallado', 'Harina', 'Mantequilla', 'Yemas de huevo' ] },
+    { id: 'brownies-chocolate', category: 'reposteria', name: 'Brownies de Chocolate', price: '$2.200 c/u', image_card: 'https://placehold.co/400x400/E18AAA/FFFFFF?text=Brownies', description: 'Cuadrados de chocolate intensos y húmedos, con una capa superior crujiente. Pueden incluir nueces o chips de chocolate extra.', materials: ['Chocolate', 'Mantequilla', 'Azúcar', 'Huevos', 'Harina', 'Nueces (opcional)'] },
+    { id: 'macarons-surtidos', category: 'reposteria', name: 'Macarons Surtidos', price: '$2.000 c/u', image_card: 'https://i.postimg.cc/qq1CTxng/macarrons-amarillos.jpg', description: 'Finos merengues de almendra con un relleno cremoso. Disponibles en una variedad de sabores como chocolate, frambuesa, limón, maracuyá y más.', materials: [ 'Harina de almendras', 'Claras de huevo', 'Azúcar', 'Rellenos variados' ] },
+    { id: 'rollos-canela', category: 'reposteria', name: 'Rollos de Canela', price: '$2.300 c/u', image_card: 'https://i.postimg.cc/3JJPFXM0/rollo-de-canela.jpg', description: 'Tiernos rollos de masa dulce con un generoso relleno de canela y azúcar, cubiertos con un glaseado de queso crema.', materials: [ 'Canela', 'Queso crema', 'Harina', 'Levadura', 'Mantequilla' ] },
 
     // --- PERSONALIZADOS ---
     { id: 'cupcakes-personalizados', category: 'personalizado', name: 'Cupcakes Personalizados de Suculentas', price: 'Desde $2.000 c/u', image_card: 'https://i.postimg.cc/cJQRzjxc/cupcakes-cactus.jpg', description: 'Nuestros cupcakes son la porción perfecta de felicidad. Elige el sabor del bizcocho y el frosting a tu gusto. Ideales para mesas dulces.', materials: [ 'Ingredientes varían según la elección del cliente', 'Base de harina, azúcar, huevos, mantequilla' ] },
@@ -144,6 +144,10 @@ function sendOrderToWhatsApp() {
     const phone = document.getElementById('whatsappPhone').value.trim();
     const email = document.getElementById('email').value.trim();
     const productType = document.getElementById('productType').value;
+    
+    const productSelectionSelect = document.getElementById('productSelection');
+    const selectedProduct = productSelectionSelect.value;
+    
     const details = document.getElementById('customDetails').value.trim();
     const deliveryDate = document.getElementById('deliveryDate').value;
 
@@ -159,6 +163,11 @@ function sendOrderToWhatsApp() {
     message += `📱 *WhatsApp:* ${phone}\n`;
     if (email) message += `📧 *Correo:* ${email}\n`;
     message += `🎂 *Tipo de Producto:* ${productType}\n`;
+
+    if (selectedProduct) {
+        message += `🍰 *Producto del catálogo:* ${selectedProduct}\n`;
+    }
+
     if (deliveryDate) {
         const date = new Date(deliveryDate);
         const userTimezoneOffset = date.getTimezoneOffset() * 60000;
@@ -202,7 +211,7 @@ function initializePage() {
         }
     });
 
-    // Funciones específicas de cada página
+    // --- LÓGICA CORREGIDA PARA CARGAR PRODUCTOS ---
     if (pageName === 'index.html' || pageName === '') {
         const sliderContainer = document.querySelector('.hero-slider');
         if (sliderContainer) {
@@ -236,8 +245,53 @@ function initializePage() {
     } else if (pageName === 'personalizados.html') {
         const productGrid = document.getElementById('product-grid');
         if (productGrid) {
-            loadCategorizedProducts(['personalizado'], '#product-grid', 3);
+            loadCategorizedProducts(['personalizado'], '#product-grid');
         }
+        
+        const productTypeSelect = document.getElementById('productType');
+        const productSelectionContainer = document.getElementById('productSelectionContainer');
+        const productSelectionSelect = document.getElementById('productSelection');
+
+        const categoryMap = {
+            'Torta': 'torta',
+            'Galletas': 'galleta',
+            'Otro': 'reposteria'
+        };
+
+        function updateProductOptions() {
+            const selectedType = productTypeSelect.value;
+            const category = categoryMap[selectedType];
+            
+            if (!category) {
+                productSelectionContainer.style.display = 'none';
+                return;
+            }
+
+            const products = productsData.filter(p => p.category === category);
+
+            if (products.length > 0) {
+                productSelectionSelect.innerHTML = ''; 
+                
+                const defaultOption = document.createElement('option');
+                defaultOption.value = '';
+                defaultOption.textContent = 'Selecciona un producto (opcional)';
+                productSelectionSelect.appendChild(defaultOption);
+
+                products.forEach(product => {
+                    const option = document.createElement('option');
+                    option.value = product.name;
+                    option.textContent = product.name;
+                    productSelectionSelect.appendChild(option);
+                });
+                productSelectionContainer.style.display = 'block';
+            } else {
+                productSelectionContainer.style.display = 'none';
+            }
+        }
+
+        productTypeSelect.addEventListener('change', updateProductOptions);
+        updateProductOptions(); 
+
     } else if (pageName === 'detalles.html') {
         loadProductDetails();
     } else if (pageName === 'faq.html') {
