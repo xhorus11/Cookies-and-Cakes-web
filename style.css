@@ -204,39 +204,34 @@ a:hover { color: var(--text-dark); }
     .product-detail-title { font-size: 2.2rem; }
     .whatsapp-text-container { display: none; }
     .logo-text { display: none; }
-    /* ===== Estilo para Recuadro de Nota Temática ===== */
+    /* ===== Estilo para Recuadro de Nota Temática (Más Pequeño y Discreto) ===== */
 .theme-note-box {
-    background-color: var(--pink-pastel); /* Fondo rosado pálido de tu paleta */
-    border: 1px solid #f0c1c1; /* Borde muy sutil */
-    border-radius: 12px; /* Esquinas más redondeadas y suaves */
-    padding: 1.5rem;
-    max-width: 600px;
-    margin: 0 auto 3rem auto;
+    background-color: #fff;
+    border: 1px solid var(--pink-accent); /* Borde más delgado */
+    border-radius: 8px; /* Esquinas un poco menos redondeadas */
+    padding: 1rem; /* Menos padding alrededor */
+    max-width: 500px; /* Un poco menos de ancho máximo */
+    margin: 0 auto 2rem auto; /* Menos margen inferior */
     text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sombra más suave */
 }
 
-.theme-note-box {
-    background-color: #fff; /* Le ponemos un fondo blanco para que contraste */
-    border: 2px solid var(--pink-accent); /* Un borde más grueso con tu color rosado principal */
-    border-radius: 12px;
-    padding: 1.5rem;
-    max-width: 600px;
-    margin: 0 auto 3rem auto;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07); /* Una sombra un poco más visible */
+.theme-note-box i {
+    font-size: 1.5rem; /* Ícono un poco más pequeño */
+    color: var(--pink-accent);
+    margin-bottom: 0.5rem;
 }
 
 .theme-note-box h4 {
     font-family: var(--font-headings);
-    font-size: 1.4rem;
+    font-size: 1.1rem; /* Título más pequeño */
     color: var(--text-dark);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
 }
 
 .theme-note-box p {
     margin: 0;
-    font-size: 0.95rem;
+    font-size: 0.85rem; /* Texto más pequeño */
     color: var(--text-dark);
-    line-height: 1.5;
+    line-height: 1.4; /* Interlineado un poco más ajustado */
 }
