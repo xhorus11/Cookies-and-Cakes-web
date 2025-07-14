@@ -204,34 +204,34 @@ a:hover { color: var(--text-dark); }
     .product-detail-title { font-size: 2.2rem; }
     .whatsapp-text-container { display: none; }
     .logo-text { display: none; }
-    /* ===== Estilo para Recuadro de Nota Temática (Más Pequeño y Discreto) ===== */
+   /* ===== Estilo para Recuadro de Nota Temática (Versión Extra Pequeña) ===== */
 .theme-note-box {
     background-color: #fff;
-    border: 1px solid var(--pink-accent); /* Borde más delgado */
-    border-radius: 8px; /* Esquinas un poco menos redondeadas */
-    padding: 1rem; /* Menos padding alrededor */
-    max-width: 500px; /* Un poco menos de ancho máximo */
-    margin: 0 auto 2rem auto; /* Menos margen inferior */
+    border: 1px solid var(--pink-accent);
+    border-radius: 8px;
+    padding: 0.8rem 1rem; /* Menos espacio interior (vertical) */
+    max-width: 450px; /* Ancho máximo reducido */
+    margin: 0 auto 2rem auto; /* Menos espacio debajo */
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sombra más suave */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .theme-note-box i {
-    font-size: 1.5rem; /* Ícono un poco más pequeño */
+    font-size: 1.3rem; /* Ícono más pequeño */
     color: var(--pink-accent);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
 }
 
 .theme-note-box h4 {
     font-family: var(--font-headings);
-    font-size: 1.1rem; /* Título más pequeño */
+    font-size: 1rem; /* Título más pequeño */
     color: var(--text-dark);
     margin-bottom: 0.3rem;
 }
 
 .theme-note-box p {
     margin: 0;
-    font-size: 0.85rem; /* Texto más pequeño */
+    font-size: 0.8rem; /* Texto principal aún más pequeño */
     color: var(--text-dark);
-    line-height: 1.4; /* Interlineado un poco más ajustado */
+    line-height: 1.4;
 }
