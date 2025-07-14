@@ -216,10 +216,15 @@ a:hover { color: var(--text-dark); }
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra suave */
 }
 
-.theme-note-box .fa-cookie-bite {
-    font-size: 2rem; /* Tamaño del ícono */
-    color: var(--pink-accent); /* Color principal rosado */
-    margin-bottom: 0.75rem;
+.theme-note-box {
+    background-color: #fff; /* Le ponemos un fondo blanco para que contraste */
+    border: 2px solid var(--pink-accent); /* Un borde más grueso con tu color rosado principal */
+    border-radius: 12px;
+    padding: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07); /* Una sombra un poco más visible */
 }
 
 .theme-note-box h4 {
