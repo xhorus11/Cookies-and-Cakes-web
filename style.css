@@ -204,3 +204,34 @@ a:hover { color: var(--text-dark); }
     .product-detail-title { font-size: 2.2rem; }
     .whatsapp-text-container { display: none; }
     .logo-text { display: none; }
+    /* ===== Estilo para Recuadro de Nota Temática ===== */
+.theme-note-box {
+    background-color: var(--pink-pastel); /* Fondo rosado pálido de tu paleta */
+    border: 1px solid #f0c1c1; /* Borde muy sutil */
+    border-radius: 12px; /* Esquinas más redondeadas y suaves */
+    padding: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra suave */
+}
+
+.theme-note-box .fa-cookie-bite {
+    font-size: 2rem; /* Tamaño del ícono */
+    color: var(--pink-accent); /* Color principal rosado */
+    margin-bottom: 0.75rem;
+}
+
+.theme-note-box h4 {
+    font-family: var(--font-headings);
+    font-size: 1.4rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.theme-note-box p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    line-height: 1.5;
+}
