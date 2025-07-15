@@ -98,6 +98,25 @@ function loadProductDetails() {
 
         container.innerHTML = `
             <div class="product-detail-layout">
+                <div class="product-detail-image"><img src="${product.image_card}" alt="${product.name}"></div>
+                <div class="product-detail-info">
+                    <h1 class="product-detail-title">${product.name}</h1>
+                    <p class="product-detail-price">${product.price}</p>
+                    ${priceNote}
+                    <p class="product-detail-description">${product.description}</p>
+                    <div class="product-detail-extra"><h3>Ingredientes Principales</h3><ul>${materialsList}</ul></div>
+                    <div class="product-availability-note" style="margin-top: 1.5rem; margin-bottom: 1rem; text-align: center; font-size: 0.9rem; color: #6c757d;">
+                        <i class="fas fa-info-circle"></i> Pedidos se agendan con 10-20 días de anticipación.
+                    </div>
+                    <a href="personalizados.html" class="btn btn-primary">Encargar o Personalizar</a>
+                </div> </div>`;
+    } else {
+        container.innerHTML = '<p>Producto no encontrado. Por favor, vuelve al <a href="index.html">inicio</a>.</p>';
+    }
+}
+
+        container.innerHTML = `
+            <div class="product-detail-layout">
                 <div class="product-detail-image"><img src="${product.image_detail || product.image_card}" alt="${product.name}"></div>
                 <div class="product-detail-info">
                     <h1 class="product-detail-title">${product.name}</h1>
