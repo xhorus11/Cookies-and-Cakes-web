@@ -165,17 +165,17 @@ function sendOrderToWhatsApp() {
     const businessWhatsAppNumber = "56992228157"; // Tu número de WhatsApp
     
     // ----- MENSAJE CON EMOJIS REINSERTADOS -----
-    let message = `¡Hola C&C Cookies and Cakes! 👋 Quisiera cotizar un pedido personalizado:\n\n`;
-    message += `👤 *Nombre:* ${name}\n`;
-    message += `📱 *WhatsApp:* ${phone}\n`;
-    if (email) message += `📧 *Correo:* ${email}\n`;
-    message += `🎂 *Tipo de Producto:* ${productType}\n`;
+    let message = `¡Hola C&C Cookies and Cakes! Quisiera cotizar un pedido personalizado:\n\n`;
+    message += ` *Nombre:* ${name}\n`;
+    message += ` *WhatsApp:* ${phone}\n`;
+    if (email) message += ` *Correo:* ${email}\n`;
+    message += ` *Tipo de Producto:* ${productType}\n`;
 
     if (selectedProduct) {
-        message += `🍰 *Producto del catálogo:* ${selectedProduct}\n`;
+        message += ` *Producto del catálogo:* ${selectedProduct}\n`;
     }
 
-    message += `\n✨ *Detalles de la cotización:*\n${details}\n\n`;
+    message += `\n *Detalles de la cotización:*\n${details}\n\n`;
     message += `¡Muchas gracias!`;
 
     const encodedMessage = encodeURIComponent(message);
