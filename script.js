@@ -98,25 +98,6 @@ function loadProductDetails() {
 
         container.innerHTML = `
             <div class="product-detail-layout">
-                <div class="product-detail-image"><img src="${product.image_card}" alt="${product.name}"></div>
-                <div class="product-detail-info">
-                    <h1 class="product-detail-title">${product.name}</h1>
-                    <p class="product-detail-price">${product.price}</p>
-                    ${priceNote}
-                    <p class="product-detail-description">${product.description}</p>
-                    <div class="product-detail-extra"><h3>Ingredientes Principales</h3><ul>${materialsList}</ul></div>
-                    <div class="product-availability-note" style="margin-top: 1.5rem; margin-bottom: 1rem; text-align: center; font-size: 0.9rem; color: #6c757d;">
-                        <i class="fas fa-info-circle"></i> Pedidos se agendan con 10-20 días de anticipación.
-                    </div>
-                    <a href="personalizados.html" class="btn btn-primary">Encargar o Personalizar</a>
-                </div> </div>`;
-    } else {
-        container.innerHTML = '<p>Producto no encontrado. Por favor, vuelve al <a href="index.html">inicio</a>.</p>';
-    }
-}
-
-        container.innerHTML = `
-            <div class="product-detail-layout">
                 <div class="product-detail-image"><img src="${product.image_detail || product.image_card}" alt="${product.name}"></div>
                 <div class="product-detail-info">
                     <h1 class="product-detail-title">${product.name}</h1>
@@ -169,34 +150,45 @@ function sendOrderToWhatsApp() {
     const phone = document.getElementById('whatsappPhone').value.trim();
     const email = document.getElementById('email').value.trim();
     const productType = document.getElementById('productType').value;
-    const details = document.getElementById('customDetails').value.trim();
     
-    // LA LÍNEA DE "deliveryDate" FUE ELIMINADA DE AQUÍ
+    const productSelectionSelect = document.getElementById('productSelection');
+    const selectedProduct = productSelectionSelect.value;
+    
+    const details = document.getElementById('customDetails').value.trim();
+    const deliveryDate = document.getElementById('deliveryDate').value;
 
     if (!name || !phone || !details) {
         alert('Por favor, completa los campos requeridos: Nombre, WhatsApp y Descripción de tu idea.');
         return;
     }
     
-    // Asegúrate de que este sea tu número de WhatsApp
-    const businessWhatsAppNumber = "56992228157"; 
+    const businessWhatsAppNumber = "56961961556"; 
     
     let message = `¡Hola C&C Cookies and Cakes! 👋 Quisiera cotizar un pedido personalizado:\n\n`;
     message += `👤 *Nombre:* ${name}\n`;
     message += `📱 *WhatsApp:* ${phone}\n`;
     if (email) message += `📧 *Correo:* ${email}\n`;
     message += `🎂 *Tipo de Producto:* ${productType}\n`;
-    
-    // EL BLOQUE QUE AGREGABA LA FECHA FUE ELIMINADO DE AQUÍ
-    
+
+    if (selectedProduct) {
+        message += `🍰 *Producto del catálogo:* ${selectedProduct}\n`;
+    }
+
+    if (deliveryDate) {
+        const date = new Date(deliveryDate);
+        const userTimezoneOffset = date.getTimezoneOffset() * 60000;
+        const adjustedDate = new Date(date.getTime() + userTimezoneOffset);
+        const formattedDate = new Intl.DateTimeFormat('es-CL', { dateStyle: 'long' }).format(adjustedDate);
+        message += `🗓️ *Fecha de Retiro Deseada:* ${formattedDate}\n`;
+    }
     message += `\n✨ *Detalles de la cotización:*\n${details}\n\n`;
     message += `¡Muchas gracias!`;
 
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${businessWhatsAppNumber}?text=${encodedMessage}`;
-    
     window.open(whatsappURL, '_blank').focus();
 }
+
 // --- LÓGICA DE INICIALIZACIÓN DE PÁGINA ---
 function initializePage() {
     const pageName = window.location.pathname.split('/').pop();
